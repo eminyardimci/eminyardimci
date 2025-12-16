@@ -9,19 +9,21 @@ body {
     background: #f9fafb;
     color: #1e293b;
     display: flex;
+    position: relative;
+    min-height: 100vh;
 }
 
-/* Arka plan blur için overlay */
+/* Blur Overlay – Arka plan blur */
 .blur-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.6s ease, visibility 0.6s ease;
-    z-index: 99;
+    z-index: 90;
     pointer-events: none;
 }
 
@@ -44,7 +46,21 @@ body {
     overflow-y: auto;
     transition: transform 0.3s ease;
     z-index: 10;
-    will-change: transform;
+}
+
+.sidebar ul { list-style: none; }
+.sidebar li { margin-bottom: 20px; }
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+}
+.sidebar a:hover, .sidebar a.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* Content */
@@ -52,21 +68,59 @@ body {
     margin-left: 250px;
     padding: 60px 40px;
     width: calc(100% - 250px);
-    transition: filter 0.6s ease;
-    will-change: filter;
 }
 
-/* Hero ve diğer stiller aynı kaldı... (kısaltmak için burayı önceki kodundan al) */
+/* Hero */
+.hero { max-width: 1200px; margin: 0 auto 80px; }
+.hero-header { text-align: center; margin-bottom: 40px; }
+.hero-header h1 { font-size: 60px; margin-bottom: 20px; }
+.photo {
+    width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.photo img { width: 100%; height: auto; display: block; }
 
-/* Project Section - Optimize ve yumuşak geçiş */
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.col h3 {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    color: #dc2626;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.col p, .col li { font-size: 16px; line-height: 1.8; }
+
+ul { padding-left: 20px; margin: 10px 0 30px; }
+
+/* Contact */
+.contact-links { list-style: none; }
+.contact-links li { margin-bottom: 12px; }
+.contact-links a {
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+.contact-links a:hover { color: #dc2626; }
+.contact-links i { font-size: 20px; width: 24px; color: #dc2626; }
+
+/* Project Section */
 .project-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
     padding: 100px 40px 60px;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -76,7 +130,6 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.6s ease, visibility 0.6s ease;
-    will-change: opacity, transform;
 }
 
 .project-section.visible {
@@ -84,27 +137,81 @@ body {
     visibility: visible;
 }
 
-/* Mobil optimizasyon */
+.project-year {
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    font-size: clamp(50px, 8vw, 90px);
+    font-weight: bold;
+    color: #dc2626;
+    background: #f9fafb;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+
+.project-section h2 { font-size: 50px; margin-bottom: 30px; }
+.project-section p { font-size: 18px; line-height: 1.8; }
+
+.close-btn {
+    padding: 12px 30px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 40px auto 0;
+    display: block;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+.close-btn:hover { background: #b91c1c; }
+
+/* Buttons */
+.projects-btn, .language-toggle {
+    padding: 12px 24px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+.projects-btn:hover, .language-toggle:hover { background: #b91c1c; }
+
+.projects-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    box-shadow: 0 12px 30px rgba(220,38,38,0.35);
+    display: none;
+    z-index: 20;
+}
+
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
     .blur-overlay {
-        backdrop-filter: blur(8px); /* Mobil performans için hafif blur */
+        backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
     }
 
-    .sidebar {
-        transform: translateX(-100%);
-        padding-top: 100px;
-    }
+    .sidebar { transform: translateX(-100%); padding-top: 100px; }
+    .sidebar.active { transform: translateX(0); }
 
-    .sidebar.active {
-        transform: translateX(0);
-    }
+    .content { margin-left: 0; width: 100%; padding: 40px 20px; }
 
-    .content {
-        margin-left: 0;
-        width: 100%;
-        padding: 40px 20px;
-    }
+    .hero-header h1 { font-size: 48px; }
+    .photo { width: 250px; }
+    .columns { grid-template-columns: 1fr; gap: 50px; }
+
+    .projects-btn { display: block; }
 
     .project-section {
         width: 95%;
@@ -117,4 +224,7 @@ body {
         top: -30px;
         left: 10px;
     }
+
+    .project-section h2 { font-size: 36px; }
+    .language-toggle { top: 10px; right: 10px; }
 }
