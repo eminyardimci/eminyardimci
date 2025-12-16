@@ -7,47 +7,91 @@
 </head>
 <body>
 
-<!-- HERO / ABOUT -->
-<section class="hero">
-  <h1>Mehmet Emin Yardımcı</h1>
-  <h2>Mekatronik Mühendisi</h2>
-  <p>
-    Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon
-    teknolojilerinde deneyimli; yenilikçi çözümler üretmeye odaklı
-    bir mekatronik mühendisiyim.
-  </p>
+<section class="cv-hero">
+
+  <!-- FOTO -->
+  <div class="cv-photo">
+    <img src="assets/profile.jpg" alt="Mehmet Emin Yardımcı">
+  </div>
+
+  <!-- SOL METİN -->
+  <div class="cv-left">
+    <h1>Özgeçmiş</h1>
+
+    <h3>PROFİL</h3>
+    <p>
+      Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon
+      teknolojilerinde deneyimli; takım çalışmasına yatkın ve yenilikçi
+      çözümler üretmeye odaklı bir mekatronik mühendisiyim.
+    </p>
+
+    <h3>EĞİTİM</h3>
+    <p>
+      <strong>Düzce Üniversitesi</strong><br>
+      Mühendislik Fakültesi – Mekatronik<br>
+      2021 – 2025 | GNO: 3.38
+    </p>
+
+    <h3>DİLLER</h3>
+    <ul>
+      <li>Türkçe</li>
+      <li>İngilizce (A2)</li>
+    </ul>
+  </div>
+
+  <!-- SAĞ METİN -->
+  <div class="cv-right">
+
+    <h3>KİŞİSEL ÖZELLİKLER</h3>
+    <ul>
+      <li>Takım çalışması ve liderlik</li>
+      <li>Yeni teknolojilere hızlı adaptasyon</li>
+      <li>Zaman ve proje yönetimi</li>
+    </ul>
+
+    <h3>ÇALIŞMA GEÇMİŞİ</h3>
+    <ul>
+      <li>Mavili Elektronik (Stajyer)</li>
+      <li>Sonel Yazılım – Ar-Ge Mühendisi</li>
+      <li>T3 Vakfı – Eğitmen</li>
+    </ul>
+
+    <h3>BECERİLER</h3>
+    <ul>
+      <li>Elektronik Kart Tasarımı</li>
+      <li>Gömülü Sistem Yazılımı</li>
+      <li>PLC, HMI & SCADA</li>
+      <li>3D & Teknik Çizim</li>
+    </ul>
+
+    <h3>SERTİFİKALAR</h3>
+    <ul>
+      <li>STM32 Mikrodenetleyici</li>
+      <li>FreeRTOS</li>
+      <li>Altium PCB Design</li>
+    </ul>
+
+  </div>
+
 </section>
 
-<!-- FLOATING PROJECT BUTTON -->
+<!-- PROJELER BUTONU -->
 <button class="projects-btn" onclick="openProjects()">Projeler</button>
 
-<!-- PROJECT GRID -->
+<!-- PROJE EKRANI -->
 <div id="projects-overlay">
   <span class="close" onclick="closeProjects()">×</span>
 
   <div class="diamond-grid">
-
-    <!-- 9 PROJE -->
     <div class="diamond" onclick="openModal('robotaksi')">Robotaksi</div>
     <div class="diamond" onclick="openModal('tubitak')">TÜBİTAK</div>
     <div class="diamond" onclick="openModal('robotkol')">Robot Kol</div>
-    <div class="diamond" onclick="openModal('scada')">SCADA</div>
-    <div class="diamond" onclick="openModal('claw')">Claw Grabber</div>
-    <div class="diamond" onclick="openModal('plc')">PLC Atölyesi</div>
-    <div class="diamond" onclick="openModal('egitmenlik')">Eğitmenlik</div>
-    <div class="diamond" onclick="openModal('meb')">MEB Yarışması</div>
-    <div class="diamond" onclick="openModal('bitirme')">Bitirme Projesi</div>
-
-  </div>
-</div>
-
-<!-- MODAL -->
-<div id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="modal-title"></h3>
-    <img id="modal-img">
-    <p id="modal-desc"></p>
+    <div class="diamond">SCADA</div>
+    <div class="diamond">PLC</div>
+    <div class="diamond">Bitirme</div>
+    <div class="diamond">Eğitmenlik</div>
+    <div class="diamond">MEB</div>
+    <div class="diamond">Claw</div>
   </div>
 </div>
 
