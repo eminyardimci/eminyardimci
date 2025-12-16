@@ -1,103 +1,205 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Georgia", serif;
-  background: #f9fafb;
-  color: #1e293b;
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #f9fafb;
+    color: #1e293b;
+    display: flex;
 }
 
-/* ANA HERO */
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background: #dc2626; /* Red from the design */
+    color: white;
+    padding: 40px 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Content */
+.content {
+    margin-left: 200px;
+    padding: 40px;
+    width: calc(100% - 200px);
+}
+
+/* Hero */
 .hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
-
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 60px;
-  align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* FOTO */
-.photo {
-  display: flex;
-  justify-content: center;
+.hero-header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.photo img {
-  width: 100%;
-  max-width: 260px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+.hero-header h1 {
+    font-size: 60px;
+    margin: 0;
 }
 
-/* METİN */
-.text h1 {
-  font-size: 48px;
-  margin-bottom: 40px;
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-header h2 {
+    font-size: 32px;
+    margin: 10px 0 5px;
+}
+
+.hero-header h3 {
+    font-size: 20px;
+    color: #64748b;
+    margin: 0;
 }
 
 .columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
 }
 
 .col h3 {
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #2563eb;
-  margin-top: 0;
-  margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #2563eb;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .col p, .col li {
-  font-size: 14px;
-  line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 ul {
-  padding-left: 18px;
-  margin-top: 6px;
-  margin-bottom: 24px;
+    padding-left: 18px;
+    margin-top: 6px;
+    margin-bottom: 24px;
 }
 
 .muted {
-  color: #64748b;
-  margin-bottom: 24px;
+    color: #64748b;
+    margin-bottom: 24px;
 }
 
-/* PROJELER BUTONU */
+/* Project Section */
+.project-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.project-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.project-section p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.close-btn {
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Projects Button */
 .projects-btn {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  padding: 14px 26px;
-  border-radius: 30px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 12px 30px rgba(37,99,235,0.35);
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 14px 26px;
+    border-radius: 30px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(37,99,235,0.35);
+    display: none; /* Hidden on desktop, shown on mobile */
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
-  }
+    body {
+        flex-direction: column;
+    }
 
-  .columns {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 10;
+    }
 
-  .photo {
-    justify-content: flex-start;
-  }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .projects-btn {
+        display: block;
+    }
 }
