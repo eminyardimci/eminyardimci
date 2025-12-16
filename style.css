@@ -1,9 +1,10 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: "Georgia", serif;
     background: #f9fafb;
     color: #1e293b;
@@ -11,7 +12,6 @@ body {
     transition: filter 0.4s ease;
 }
 
-/* Blur when project open */
 body.project-open {
     filter: blur(8px) brightness(0.7);
 }
@@ -27,14 +27,12 @@ body.project-open {
     top: 0;
     left: 0;
     overflow-y: auto;
-    transition: transform 0.3s ease, filter 0.4s ease;
+    transition: transform 0.3s ease;
     z-index: 10;
 }
 
 .sidebar ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .sidebar li {
@@ -45,9 +43,9 @@ body.project-open {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    display: block;
     text-transform: uppercase;
     font-weight: 500;
+    display: block;
 }
 
 .sidebar a:hover,
@@ -103,8 +101,7 @@ body.project-open {
 .col h3 {
     font-size: 18px;
     letter-spacing: 1.2px;
-    color: #dc2626; /* Yeni renk: Kırmızı, sidebar'a uyumlu */
-    margin-top: 0;
+    color: #dc2626;
     margin-bottom: 12px;
     text-transform: uppercase;
 }
@@ -119,10 +116,9 @@ ul {
     margin: 10px 0 30px;
 }
 
-/* Contact links with icons */
+/* Contact Links */
 .contact-links {
     list-style: none;
-    padding: 0;
 }
 
 .contact-links li {
@@ -149,11 +145,12 @@ ul {
     color: #dc2626;
 }
 
-/* Project Section */
+/* Project Section - Tamamen Optimize ve Mobil Uyumlu */
 .project-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 60px 60px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    padding: 100px 40px 60px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -161,8 +158,6 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    max-height: 90vh;
     overflow-y: auto;
     z-index: 100;
     opacity: 0;
@@ -179,12 +174,12 @@ ul {
     position: absolute;
     top: -40px;
     left: 20px;
-    font-size: clamp(60px, 10vw, 100px);
+    font-size: clamp(50px, 8vw, 90px);
     font-weight: bold;
     color: #dc2626;
-    line-height: 1;
     background: #f9fafb;
     padding: 0 20px;
+    white-space: nowrap;
 }
 
 .project-section h2 {
@@ -201,12 +196,13 @@ ul {
 
 .close-btn {
     padding: 12px 30px;
-    background: #dc2626; /* Kapat butonu rengini de kırmızıya uydurdum */
+    background: #dc2626;
     color: white;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    margin-top: 40px;
+    margin: 40px auto 0;
+    display: block;
     font-size: 16px;
     transition: background 0.3s;
 }
@@ -219,47 +215,39 @@ ul {
     display: none;
 }
 
-/* Projects Button */
+/* Buttons */
+.projects-btn, .language-toggle {
+    padding: 12px 24px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    z-index: 100;
+}
+
+.projects-btn:hover, .language-toggle:hover {
+    background: #b91c1c;
+}
+
 .projects-btn {
     position: fixed;
     right: 40px;
     bottom: 40px;
-    padding: 16px 30px;
-    border-radius: 30px;
-    border: none;
-    background: #dc2626;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
     box-shadow: 0 12px 30px rgba(220,38,38,0.35);
     display: none;
-    z-index: 20;
 }
 
-/* Language Toggle */
 .language-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 8px 16px;
-    background: #dc2626;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    z-index: 100;
-}
-
-.language-toggle:hover {
-    background: #b91c1c;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-    body {
-        flex-direction: column;
-    }
-
     .sidebar {
         transform: translateX(-100%);
         padding-top: 100px;
@@ -293,18 +281,24 @@ ul {
     }
 
     .project-section {
-        padding: 60px 20px 40px;
         width: 95%;
+        padding: 80px 20px 50px;
+        max-height: 90vh;
     }
 
     .project-year {
+        font-size: clamp(45px, 10vw, 70px);
         top: -30px;
         left: 10px;
-        font-size: clamp(50px, 12vw, 80px);
+        padding: 0 10px;
     }
 
     .project-section h2 {
-        font-size: 38px;
+        font-size: 36px;
+    }
+
+    .project-section p {
+        font-size: 17px;
     }
 
     .language-toggle {
