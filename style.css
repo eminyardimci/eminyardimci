@@ -4,104 +4,70 @@
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
-  background: #f4f6f8;
-  color: #0f172a;
+  font-family: "Georgia", serif;
+  background: #f9fafb;
+  color: #1e293b;
 }
 
-/* SAYFA */
-.page {
+/* ANA HERO */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+
   display: grid;
-  grid-template-columns: 320px 1fr;
-  min-height: 100vh;
+  grid-template-columns: 300px 1fr;
+  gap: 60px;
+  align-items: flex-start;
 }
 
-/* SIDEBAR */
-.sidebar {
-  background: linear-gradient(180deg, #0f172a, #020617);
-  color: white;
-  padding: 40px 30px;
+/* FOTO */
+.photo {
+  display: flex;
+  justify-content: center;
 }
 
-.sidebar img {
+.photo img {
   width: 100%;
-  border-radius: 18px;
-  margin-bottom: 24px;
+  max-width: 260px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-.sidebar h2 {
-  margin: 0;
-  font-size: 26px;
-  line-height: 1.2;
+/* METİN */
+.text h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
 }
 
-.role {
-  display: block;
-  color: #94a3b8;
-  margin-bottom: 30px;
-}
-
-.sidebar-block {
-  margin-top: 30px;
-}
-
-.sidebar-block h4 {
-  font-size: 13px;
-  text-transform: uppercase;
-  color: #38bdf8;
-  margin-bottom: 6px;
-}
-
-/* CONTENT */
-.content {
-  padding: 60px 70px;
-}
-
-section {
-  margin-bottom: 50px;
-}
-
-h1 {
-  font-size: 42px;
-  margin-bottom: 16px;
-}
-
-h3 {
-  margin-bottom: 12px;
-}
-
-.lead {
-  font-size: 18px;
-  max-width: 700px;
-}
-
-.grid-2 {
+.columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 60px;
+}
+
+.col h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #2563eb;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.col p, .col li {
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 ul {
   padding-left: 18px;
+  margin-top: 6px;
+  margin-bottom: 24px;
 }
 
 .muted {
   color: #64748b;
-  margin-top: 10px;
-}
-
-/* TAGS */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tags span {
-  background: #e2e8f0;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 13px;
+  margin-bottom: 24px;
 }
 
 /* PROJELER BUTONU */
@@ -109,27 +75,29 @@ ul {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  padding: 16px 28px;
-  border-radius: 40px;
+  padding: 14px 26px;
+  border-radius: 30px;
   border: none;
   background: #2563eb;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   box-shadow: 0 12px 30px rgba(37,99,235,0.35);
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .page {
+  .hero {
     grid-template-columns: 1fr;
+    padding: 40px 20px;
   }
 
-  .content {
-    padding: 40px 24px;
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .grid-2 {
-    grid-template-columns: 1fr;
+  .photo {
+    justify-content: flex-start;
   }
 }
