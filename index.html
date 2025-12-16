@@ -7,100 +7,101 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Sidebar Navigation (Inspired by the provided design) -->
+    <!-- Sidebar Navigation -->
     <nav class="sidebar">
         <ul>
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#meb-yarismasi" class="project-link" data-project="meb">MEB Yarışması</a></li>
-            <li><a href="#tubitak-yarismasi" class="project-link" data-project="tubitak">TÜBİTAK Yarışması</a></li>
-            <li><a href="#robotaksi" class="project-link" data-project="robotaksi">Robotaksi</a></li>
-            <li><a href="#robot-kol" class="project-link" data-project="robotkol">Robot Kol</a></li>
-            <li><a href="#plc-atolyesi" class="project-link" data-project="plcatolyesi">PLC Atölyesi</a></li>
-            <li><a href="#egitmenlik" class="project-link" data-project="egitmenlik">Eğitmenlik</a></li>
-            <li><a href="#scada" class="project-link" data-project="scada">SCADA</a></li>
-            <li><a href="#claw-graber" class="project-link" data-project="clawgraber">Claw Graber</a></li>
-            <li><a href="#bitirme-projesi" class="project-link" data-project="bitirme">Bitirme Projesi</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="hakkimda">HAKKIMDA</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="meb">MEB YARIŞMASI</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="tubitak">TÜBİTAK YARIŞMASI</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="robotaksi">ROBOTAKSİ</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="robotkol">ROBOT KOL</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="plcatolyesi">PLC ATÖLYESİ</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="egitmenlik">EĞİTMENLİK</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="scada">SCADA</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="clawgraber">CLAW GRABER</a></li>
+            <li><a href="javascript:void(0);" class="nav-link" data-section="bitirme">BİTİRME PROJESİ</a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
     <main class="content">
-        <!-- Hero Section (Improved with better alignment and less emptiness) -->
+        <!-- Hero Section (Matched to PDF layout) -->
         <section id="hakkimda" class="hero">
-            <div class="hero-header">
-                <h1>Portfolyo</h1>
-                <div class="profile-photo">
-                    <img src="assets/projects/profile.jpg" alt="Mehmet Emin Yardımcı">
-                </div>
-                <h2>Mehmet Emin Yardımcı</h2>
-                <h3>Mekatronik Mühendisi</h3>
+            <!-- Photo -->
+            <div class="photo">
+                <img src="assets/projects/profile.jpg" alt="Mehmet Emin Yardımcı">
             </div>
-            <div class="columns">
-                <!-- Left Column -->
-                <div class="col">
-                    <h3>Profil</h3>
-                    <p>Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon teknolojilerinde deneyimli; takım çalışmasına yatkın ve yenilikçi çözümler üretmeye odaklı bir mekatronik mühendisiyim.</p>
-                    <h3>Eğitim</h3>
-                    <p><strong>Düzce Üniversitesi</strong><br>Mekatronik Mühendisliği<br>2021 – 2025 | GNO: 3.38</p>
-                    <p class="muted">İnönü MTAL – Elektrik Teknolojileri<br>2015 – 2019</p>
-                    <h3>Diller</h3>
-                    <ul>
-                        <li>Türkçe</li>
-                        <li>İngilizce (A2)</li>
-                    </ul>
-                    <h3>İletişim Bilgileri</h3>
-                    <ul>
-                        <li>+90 546 534 6983</li>
-                        <li>emin.yardimciii@gmail.com</li>
-                        <li><a href="www.linkedin.com/in/eminyardimci">LinkedIn</a></li>
-                        <li><a href="https://www.youtube.com/@eminyrdmc">YouTube</a></li>
-                    </ul>
-                </div>
-                <!-- Right Column -->
-                <div class="col">
-                    <h3>Kişisel Özellikler</h3>
-                    <ul>
-                        <li>Takım çalışması ve liderlik</li>
-                        <li>Yeni teknolojileri öğrenme ve uygulama</li>
-                        <li>Zaman yönetimi ve planlama</li>
-                    </ul>
-                    <h3>Çalışma Geçmişi</h3>
-                    <ul>
-                        <li>Mavili Elektronik (Stajyer)</li>
-                        <li>Petkom Yazılım (Stajyer)</li>
-                        <li>Pektam Pano (Stajyer)</li>
-                        <li>Sunny Elektronik (Stajyer)</li>
-                        <li>Orbiba Robotics (Stajyer)</li>
-                        <li>Sonel Yazılım – Ar-Ge</li>
-                        <li>T3 Vakfı – Eğitmen</li>
-                    </ul>
-                    <h3>Beceriler</h3>
-                    <ul>
-                        <li>Elektronik Kart Tasarımı</li>
-                        <li>Gömülü Sistem Yazılımı</li>
-                        <li>PLC / HMI / SCADA</li>
-                        <li>3D Katı Modelleme</li>
-                    </ul>
-                    <h3>Sertifikalar</h3>
-                    <ul>
-                        <li>STM32</li>
-                        <li>FreeRTOS</li>
-                        <li>Altium PCB</li>
-                        <li>C Programlama</li>
-                        <li>Gaz Altı Kaynak (Magwell)</li>
-                    </ul>
+            <!-- Text -->
+            <div class="text">
+                <h1>Özgeçmiş</h1>
+                <div class="columns">
+                    <!-- Left Column -->
+                    <div class="col">
+                        <h3>Profil</h3>
+                        <p>Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon teknolojilerinde deneyimli; takım çalışmasına yatkın ve yenilikçi çözümler üretmeye odaklı bir mekatronik mühendisiyim.</p>
+                        <h3>Eğitim</h3>
+                        <p><strong>Düzce Üniversitesi</strong><br>Mekatronik Mühendisliği<br>2021 – 2025 | GNO: 3.38</p>
+                        <p class="muted">İnönü MTAL – Elektrik Teknolojileri<br>2015 – 2019</p>
+                        <h3>Diller</h3>
+                        <ul>
+                            <li>Türkçe</li>
+                            <li>İngilizce (A2)</li>
+                        </ul>
+                        <h3>İletişim Bilgileri</h3>
+                        <ul>
+                            <li>+90 546 534 6983</li>
+                            <li>emin.yardimciii@gmail.com</li>
+                            <li><a href="www.linkedin.com/in/eminyardimci">LinkedIn</a></li>
+                            <li><a href="https://www.youtube.com/@eminyrdmc">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col">
+                        <h3>Kişisel Özellikler</h3>
+                        <ul>
+                            <li>Takım çalışması ve liderlik</li>
+                            <li>Yeni teknolojileri öğrenme ve uygulama</li>
+                            <li>Zaman yönetimi ve planlama</li>
+                        </ul>
+                        <h3>Çalışma Geçmişi</h3>
+                        <ul>
+                            <li>Mavili Elektronik (Stajyer)</li>
+                            <li>Petkom Yazılım (Stajyer)</li>
+                            <li>Pektam Pano (Stajyer)</li>
+                            <li>Sunny Elektronik (Stajyer)</li>
+                            <li>Orbiba Robotics (Stajyer)</li>
+                            <li>Sonel Yazılım – Ar-Ge</li>
+                            <li>T3 Vakfı – Eğitmen</li>
+                        </ul>
+                        <h3>Beceriler</h3>
+                        <ul>
+                            <li>Elektronik Kart Tasarımı</li>
+                            <li>Gömülü Sistem Yazılımı</li>
+                            <li>PLC / HMI / SCADA</li>
+                            <li>3D Katı Modelleme</li>
+                        </ul>
+                        <h3>Sertifikalar</h3>
+                        <ul>
+                            <li>STM32</li>
+                            <li>FreeRTOS</li>
+                            <li>Altium PCB</li>
+                            <li>C Programlama</li>
+                            <li>Gaz Altı Kaynak (Magwell)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Details Sections (Hidden by default, shown via JS) -->
+        <!-- Project Detail Section -->
         <section id="project-detail" class="project-section hidden">
+            <div id="project-year" class="project-year"></div>
             <div id="project-content"></div>
-            <button class="close-btn" onclick="closeProject()">Kapat</button>
+            <button class="close-btn" onclick="closeSection()">Kapat</button>
         </section>
     </main>
 
-    <!-- Projects Button (Kept for mobile or alternative access) -->
+    <!-- Projects Button for Mobile -->
     <button class="projects-btn" onclick="toggleSidebar()">Projeler</button>
 
     <script src="script.js"></script>
