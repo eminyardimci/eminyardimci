@@ -51,7 +51,7 @@ const languages = {
         welding: 'Gaz Altı Kaynak (Magwell)',
         close: 'Kapat',
         projects: 'Projeler',
-        university: '<strong data-lang-key="duzceUni">Düzce Üniversitesi</strong><br><span data-lang-key="mechatronics">Mekatronik Mühendisliği</span><br>2021 – 2025 | GNO: 3.38'
+        university: '<strong>Düzce Üniversitesi</strong><br>Mekatronik Mühendisliği<br>2021 – 2025 | GNO: 3.38'
     },
     en: {
         about: 'ABOUT',
@@ -104,7 +104,7 @@ const languages = {
         welding: 'Gas Metal Arc Welding (Magwell)',
         close: 'Close',
         projects: 'Projects',
-        university: '<strong data-lang-key="duzceUni">Düzce University</strong><br><span data-lang-key="mechatronics">Mechatronics Engineering</span><br>2021 – 2025 | GPA: 3.38'
+        university: '<strong>Düzce University</strong><br>Mechatronics Engineering<br>2021 – 2025 | GPA: 3.38'
     }
 };
 
@@ -258,17 +258,32 @@ document.querySelectorAll('.nav-link').forEach(link => {
 window.addEventListener('load', () => {
     setLanguage(currentLang);
     document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
+    updateToggleButton();
 });
 
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-lang-key]').forEach(el => {
-        el.innerHTML = languages[lang][el.dataset.langKey];
+        const key = el.dataset.langKey;
+        if (languages[lang][key]) {
+            el.innerHTML = languages[lang][key];
+        }
     });
     if (currentSectionKey) {
         showSection(currentSectionKey);
     }
+    updateToggleButton();
+}
+
+function toggleLanguage() {
+    const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    setLanguage(newLang);
+}
+
+function updateToggleButton() {
+    const button = document.getElementById('language-toggle');
+    button.textContent = currentLang === 'tr' ? 'EN' : 'TR';
 }
 
 function showSection(key) {
