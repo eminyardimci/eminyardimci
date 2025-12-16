@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* Blur Overlay – Yumuşak ve performanslı */
+/* Blur Overlay */
 .blur-overlay {
     position: fixed;
     inset: 0;
@@ -48,14 +48,8 @@ body {
     z-index: 10;
 }
 
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar li {
-    margin-bottom: 20px;
-}
-
+.sidebar ul { list-style: none; }
+.sidebar li { margin-bottom: 20px; }
 .sidebar a {
     color: white;
     text-decoration: none;
@@ -64,9 +58,7 @@ body {
     font-weight: 500;
     display: block;
 }
-
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar a:hover, .sidebar a.active {
     font-weight: bold;
     text-decoration: underline;
 }
@@ -79,21 +71,9 @@ body {
 }
 
 /* Hero */
-.hero {
-    max-width: 1200px;
-    margin: 0 auto 80px;
-}
-
-.hero-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.hero-header h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
-}
-
+.hero { max-width: 1200px; margin: 0 auto 80px; }
+.hero-header { text-align: center; margin-bottom: 40px; }
+.hero-header h1 { font-size: 60px; margin-bottom: 20px; }
 .photo {
     width: 300px;
     margin: 0 auto;
@@ -101,19 +81,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+.photo img { width: 100%; height: auto; display: block; }
 
-.photo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .col h3 {
     font-size: 18px;
     letter-spacing: 1.2px;
@@ -121,26 +91,13 @@ body {
     margin-bottom: 12px;
     text-transform: uppercase;
 }
+.col p, .col li { font-size: 16px; line-height: 1.8; }
 
-.col p, .col li {
-    font-size: 16px;
-    line-height: 1.8;
-}
+ul { padding-left: 20px; margin: 10px 0 30px; }
 
-ul {
-    padding-left: 20px;
-    margin: 10px 0 30px;
-}
-
-/* Contact Links */
-.contact-links {
-    list-style: none;
-}
-
-.contact-links li {
-    margin-bottom: 12px;
-}
-
+/* Contact */
+.contact-links { list-style: none; }
+.contact-links li { margin-bottom: 12px; }
 .contact-links a {
     color: #1e293b;
     text-decoration: none;
@@ -150,23 +107,14 @@ ul {
     gap: 10px;
     transition: color 0.3s;
 }
+.contact-links a:hover { color: #dc2626; }
+.contact-links i { font-size: 20px; width: 24px; color: #dc2626; }
 
-.contact-links a:hover {
-    color: #dc2626;
-}
-
-.contact-links i {
-    font-size: 20px;
-    width: 24px;
-    color: #dc2626;
-}
-
-/* Project Section – Yıl tamamen içeride, taşmasız ve şık */
+/* Project Section */
 .project-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
-    padding: 60px 40px; /* Güvenli padding */
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -181,22 +129,58 @@ ul {
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.project-section.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Yıl vurgusu – Büyük, içeride, taşma yok */
+/* PC'de yıl içeride, mobilde dışarı taşmalı */
 .project-year {
-    position: static; /* Taşma kaldırıldı */
     font-size: clamp(60px, 10vw, 100px);
     font-weight: bold;
     color: #dc2626;
-    margin-bottom: 20px;
     line-height: 1;
-    text-align: left;
-    background: transparent;
-    padding: 0;
+    background: #f9fafb;
+    padding: 0 20px;
+}
+
+/* PC (büyük ekran) – yıl içeride */
+@media (min-width: 901px) {
+    .project-section {
+        padding: 60px 40px;
+    }
+    .project-year {
+        position: static;
+        margin-bottom: 20px;
+        background: transparent;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+/* Mobil (küçük ekran) – yıl dışarı taşmalı (orijinal tasarım) */
+@media (max-width: 900px) {
+    .blur-overlay {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .project-section {
+        padding: 80px 20px 50px;
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .project-year {
+        position: absolute;
+        top: -30px;
+        left: 10px;
+        font-size: clamp(50px, 12vw, 80px);
+    }
+
+    .project-section h2 { font-size: 36px; }
+    .project-section p { font-size: 17px; }
+}
+
+/* Genel visible */
+.project-section.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .project-section h2 {
@@ -224,13 +208,9 @@ ul {
     transition: background 0.3s;
 }
 
-.close-btn:hover {
-    background: #b91c1c;
-}
+.close-btn:hover { background: #b91c1c; }
 
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
 
 /* Buttons */
 .projects-btn, .language-toggle {
@@ -244,9 +224,7 @@ ul {
     transition: background 0.3s;
 }
 
-.projects-btn:hover, .language-toggle:hover {
-    background: #b91c1c;
-}
+.projects-btn:hover, .language-toggle:hover { background: #b91c1c; }
 
 .projects-btn {
     position: fixed;
@@ -264,21 +242,13 @@ ul {
     z-index: 100;
 }
 
-/* Responsive */
+/* Responsive Genel */
 @media (max-width: 900px) {
-    .blur-overlay {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-
     .sidebar {
         transform: translateX(-100%);
         padding-top: 100px;
     }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
+    .sidebar.active { transform: translateX(0); }
 
     .content {
         margin-left: 0;
@@ -286,44 +256,9 @@ ul {
         padding: 40px 20px;
     }
 
-    .hero-header h1 {
-        font-size: 48px;
-    }
-
-    .photo {
-        width: 250px;
-    }
-
-    .columns {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .projects-btn {
-        display: block;
-    }
-
-    .project-section {
-        width: 95%;
-        padding: 50px 20px;
-        max-height: 90vh;
-    }
-
-    .project-year {
-        font-size: clamp(50px, 12vw, 80px);
-        margin-bottom: 15px;
-    }
-
-    .project-section h2 {
-        font-size: 36px;
-    }
-
-    .project-section p {
-        font-size: 17px;
-    }
-
-    .language-toggle {
-        top: 10px;
-        right: 10px;
-    }
+    .hero-header h1 { font-size: 48px; }
+    .photo { width: 250px; }
+    .columns { grid-template-columns: 1fr; gap: 50px; }
+    .projects-btn { display: block; }
+    .language-toggle { top: 10px; right: 10px; }
 }
