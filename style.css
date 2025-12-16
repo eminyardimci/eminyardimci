@@ -161,12 +161,12 @@ ul {
     color: #dc2626;
 }
 
-/* Project Section – Tarih orantılı, taşma yok */
+/* Project Section – Yıl tamamen içeride, taşma yok, orantılı fontlar */
 .project-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
-    padding: 80px 40px 60px; /* Üst padding taşma için yeterli */
+    padding: 60px 40px; /* Üst boşluk güvenli, taşma yok */
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -186,18 +186,17 @@ ul {
     visibility: visible;
 }
 
-/* Tarih (yıl) – Orantılı font, dışarı taşmalı ama dengeli ve taşmasız */
+/* Yıl – İçeride, taşmasız, orantılı ve dengeli font */
 .project-year {
-    position: absolute;
-    top: -35px;
-    left: 30px;
-    font-size: clamp(60px, 7vw, 80px); /* Orantılı ve dengeli (daha küçük) */
+    position: static; /* Taşma tamamen yok */
+    font-size: clamp(45px, 6vw, 70px); /* Daha küçük ve orantılı */
     font-weight: bold;
     color: #dc2626;
+    margin-bottom: 20px;
     line-height: 1;
-    background: #f9fafb;
-    padding: 0 25px;
-    white-space: nowrap;
+    text-align: left;
+    background: transparent;
+    padding: 0;
 }
 
 .project-section h2 {
@@ -265,7 +264,7 @@ ul {
     z-index: 100;
 }
 
-/* Responsive – Mobilde önceki güzel görünüm korundu */
+/* Responsive – Mobilde de taşmasız ve orantılı */
 @media (max-width: 900px) {
     .blur-overlay {
         backdrop-filter: blur(8px);
@@ -306,15 +305,13 @@ ul {
 
     .project-section {
         width: 95%;
-        padding: 70px 20px 50px;
+        padding: 50px 20px;
         max-height: 90vh;
     }
 
     .project-year {
-        font-size: clamp(55px, 10vw, 70px); /* Mobilde orantılı ve önceki gibi güzel */
-        top: -28px;
-        left: 15px;
-        padding: 0 15px;
+        font-size: clamp(40px, 8vw, 60px); /* Mobilde daha küçük */
+        margin-bottom: 15px;
     }
 
     .project-section h2 {
