@@ -1,87 +1,54 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mehmet Emin Yardımcı | Mechatronics Engineer</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Mehmet Emin Yardımcı | Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1 id="name">Mehmet Emin Yardımcı</h1>
-    <h2 id="title">Mekatronik Mühendisi</h2>
-
-    <div class="lang-switch">
-        <button onclick="setLang('tr')">TR</button>
-        <button onclick="setLang('en')">EN</button>
-    </div>
-
-    <div class="socials">
-        <a href="https://www.linkedin.com/in/eminyardimci" target="_blank">LinkedIn</a>
-        <a href="https://github.com/eminyardimci" target="_blank">GitHub</a>
-        <a href="https://www.youtube.com/@eminyrdmc" target="_blank">YouTube</a>
-    </div>
-</header>
-
-<section>
-    <h3 id="about-title">Hakkımda</h3>
-    <p id="about-text">
-        Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon
-        teknolojilerinde deneyimli bir mekatronik mühendisiyim.
-    </p>
+<!-- HERO / ABOUT -->
+<section class="hero">
+  <h1>Mehmet Emin Yardımcı</h1>
+  <h2>Mekatronik Mühendisi</h2>
+  <p>
+    Elektronik kart tasarımı, gömülü sistem yazılımı ve otomasyon
+    teknolojilerinde deneyimli; yenilikçi çözümler üretmeye odaklı
+    bir mekatronik mühendisiyim.
+  </p>
 </section>
 
-<section>
-    <h3 id="projects-title">Projeler</h3>
+<!-- FLOATING PROJECT BUTTON -->
+<button class="projects-btn" onclick="openProjects()">Projeler</button>
 
-    <div class="projects">
+<!-- PROJECT GRID -->
+<div id="projects-overlay">
+  <span class="close" onclick="closeProjects()">×</span>
 
-        <!-- ROBOTAKSİ -->
-        <div class="project-card">
-            <img src="assets/projects/robotaksi.jpg" alt="Robotaksi">
-            <h4>🚗 Robotaksi</h4>
-            <span>2023 – 2025</span>
-            <p id="robotaksi-text"></p>
-            <button onclick="openModal('robotaksi')">Detaylar</button>
-        </div>
+  <div class="diamond-grid">
 
-        <!-- TÜBİTAK -->
-        <div class="project-card">
-            <img src="assets/projects/tubitak.jpg" alt="TÜBİTAK 2242">
-            <h4>🧠 TÜBİTAK 2242</h4>
-            <span>2021</span>
-            <p id="tubitak-text"></p>
-            <button onclick="openModal('tubitak')">Detaylar</button>
-        </div>
+    <!-- 9 PROJE -->
+    <div class="diamond" onclick="openModal('robotaksi')">Robotaksi</div>
+    <div class="diamond" onclick="openModal('tubitak')">TÜBİTAK</div>
+    <div class="diamond" onclick="openModal('robotkol')">Robot Kol</div>
+    <div class="diamond" onclick="openModal('scada')">SCADA</div>
+    <div class="diamond" onclick="openModal('claw')">Claw Grabber</div>
+    <div class="diamond" onclick="openModal('plc')">PLC Atölyesi</div>
+    <div class="diamond" onclick="openModal('egitmenlik')">Eğitmenlik</div>
+    <div class="diamond" onclick="openModal('meb')">MEB Yarışması</div>
+    <div class="diamond" onclick="openModal('bitirme')">Bitirme Projesi</div>
 
-        <!-- ROBOT KOL -->
-        <div class="project-card">
-            <img src="assets/projects/robotkol.jpg" alt="Robot Kol">
-            <h4>🤖 Robot Kol</h4>
-            <span>2023 – 2024</span>
-            <p id="robotkol-text"></p>
-            <button onclick="openModal('robotkol')">Detaylar</button>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h3 id="contact-title">İletişim</h3>
-    <p>Email: emin.yardimciii@gmail.com</p>
-    <p><a href="portfolio.pdf" download>📄 PDF Portfolyo İndir</a></p>
-</section>
+  </div>
+</div>
 
 <!-- MODAL -->
-<div id="project-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3 id="modal-title"></h3>
-        <img id="modal-image" src="">
-        <p id="modal-description"></p>
-        <h4>Teknolojiler</h4>
-        <ul id="modal-tech"></ul>
-    </div>
+<div id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modal-title"></h3>
+    <img id="modal-img">
+    <p id="modal-desc"></p>
+  </div>
 </div>
 
 <script src="script.js"></script>
