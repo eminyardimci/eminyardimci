@@ -177,4 +177,165 @@ const sections = {
         robotaksi: { // Tek başlık altında birleştirildi
             year: '2023-2025',
             title: 'Robotaxi Competition',
-            description: 'In the 2023 Robotaxi Passenger Autonomous Vehicle Competition, our team won the Best Team Spirit award by coming 3rd. In this project, I was responsible for the vehicle\'s electronic board design, electrical system, and embedded
+            description: 'In the 2023 Robotaxi Passenger Autonomous Vehicle Competition, our team won the Best Team Spirit award by coming 3rd. In this project, I was responsible for the vehicle\'s electronic board design, electrical system, and embedded system developments; I ensured the safe and efficient operation of the vehicle with the integration of sensors and actuators.<br><br>In 2024, as the team captain in the Robotaxi project, I was involved in redesigning and developing our previous vehicle both electrically and mechanically, and we produced a second vehicle on top of it. I undertook the tasks of embedded system software, electronic board design, and team organization in the project and also contributed to mechanical works. In addition, I provided sponsorship agreements by meeting with Baykar, T.C. Ministry of Youth and Sports, Uzay Sports, Ensar Mold, Mesan Electric, and Düzce Municipality.<br><br>In 2025, in the Robotaxi project, I supported mechanical works and took part in the electrical team; in this process, we designed and developed a new vehicle. We set out inspired by Cybertack in the vehicle design and I carried out the tasks of embedded system software and electronic board design in the project.'
+        },
+        robotkol: {
+            year: '2023-2024',
+            title: 'Robot Arm',
+            description: 'I worked in the fields of robot arm prototype production and development of embedded system codes for a year at Sonel Software company within the scope of the KOSGEB supported robot arm project.'
+        },
+        plcatolyesi: {
+            year: '2024',
+            title: 'PLC Workshop',
+            description: 'For the PLC Workshop gained to Düzce University Mechatronics Engineering department, I took an active role in both PLC programming and mechanical design and assembly works on PLC experiment sets, FESTO experiment stands, and liquid level control mechanism.'
+        },
+        egitmenlik: {
+            year: '2023-2025',
+            title: 'Instructorship',
+            description: 'I did instructorship in advanced Robotics, Internet of Things and Electronic Programming, Nano Technology, Design and Production, Flying and Autonomous Vehicles in T3 Foundation Deneyap Workshops.'
+        },
+        scada: {
+            year: '2025',
+            title: 'SCADA Project',
+            description: 'As the application homework of the SCADA course, I chose the cargo automation topic. The purpose of this automation is to dimension the incoming cargos and separate them to appropriate compartments and at the same time to record the number of incoming cargos to provide depot control. For these operations, I preferred Siemens S7-1200 CPU 1214C DC/DC/DC model and SM 1231 AI 4x13BIT module to control analog outputs.'
+        },
+        clawgraber: {
+            year: '2025',
+            title: 'Claw Grabber',
+            description: 'By applying reverse engineering methods, I designed the mechanism called \'Claw Grabber\' in the visuals.'
+        },
+        bitirme: {
+            year: '2025',
+            title: 'Graduation Project',
+            description: 'The research project titled \'Can Air Defense Systems be Developed in University Environments?\' which I undertook the execution of within the scope of TÜBİTAK 2209-A University Students Research Projects Support Program and which is also my graduation project, has been entitled to be supported by TÜBİTAK. In the project, I developed real-time target detection and instant intervention algorithms using Raspberry Pi based image processing systems. In addition, sensor integration, data processing, automatic control systems and all software-mechanical integration on a single hardware platform were provided within the scope of the project. This study has provided an important experience in terms of both defense systems simulations and prototype design that can be applied in university environment.'
+        }
+    }
+};
+
+// Cache'lenmiş DOM elemanları
+const elements = {
+    navLinks: document.querySelectorAll('.nav-link'),
+    projectDetail: document.getElementById('project-detail'),
+    projectYear: document.getElementById('project-year'),
+    projectContent: document.getElementById('project-content'),
+    hakkimda: document.getElementById('hakkimda'),
+    languageToggle: document.getElementById('language-toggle'),
+    sidebar: document.querySelector('.sidebar'),
+    body: document.body
+};
+
+// Dil ve bölüm durumu
+let currentLang = localStorage.getItem('lang') || 'tr';
+let currentSectionKey = null;
+let isTransitioning = false;
+
+// Event Delegation: Tüm nav-link'ler için tek listener
+document.querySelector('.sidebar').addEventListener('click', (e) => {
+    const link = e.target.closest('.nav-link');
+    if (!link) return;
+
+    e.preventDefault();
+    const sectionKey = link.dataset.section;
+
+    if (currentSectionKey === sectionKey && sectionKey !== 'hakkimda') return;
+
+    showSection(sectionKey);
+
+    elements.navLinks.forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
+
+    if (window.innerWidth <= 900) {
+        toggleSidebar();
+    }
+});
+
+// Dil değiştirme
+elements.languageToggle.addEventListener('click', toggleLanguage);
+
+// Sayfa yüklendiğinde başlangıç ayarları
+window.addEventListener('load', () => {
+    setLanguage(currentLang, false);
+    elements.navLinks.forEach(link => {
+        if (link.dataset.section === 'hakkimda') link.classList.add('active');
+    });
+});
+
+function setLanguage(lang, reRenderSection = true) {
+    if (lang === currentLang) return;
+
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+        const key = el.dataset.langKey;
+        const text = languages[lang][key];
+        if (text) el.innerHTML = text;
+    });
+
+    elements.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
+
+    if (reRenderSection && currentSectionKey && currentSectionKey !== 'hakkimda') {
+        showSection(currentSectionKey);
+    }
+}
+
+function toggleLanguage() {
+    const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    setLanguage(newLang);
+}
+
+function showSection(key) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    currentSectionKey = key === 'hakkimda' ? null : key;
+
+    if (key === 'hakkimda') {
+        closeProjectDetail();
+        scrollToElement(elements.hakkimda);
+    } else {
+        const section = sections[currentLang][key];
+        elements.projectYear.textContent = section.year;
+        elements.projectContent.innerHTML = `<h2>${section.title}</h2><p>${section.description}</p>`;
+
+        elements.projectDetail.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            elements.projectDetail.classList.add('visible');
+            elements.body.classList.add('project-open');
+            scrollToElement(elements.projectDetail);
+        });
+    }
+
+    setTimeout(() => isTransitioning = false, 500); // Düzeltilmiş süre
+}
+
+function closeProjectDetail() {
+    elements.projectDetail.classList.remove('visible');
+    elements.body.classList.remove('project-open');
+
+    setTimeout(() => {
+        elements.projectDetail.classList.add('hidden');
+    }, 400);
+}
+
+function closeSection() {
+    if (isTransitioning) return;
+    closeProjectDetail();
+
+    elements.navLinks.forEach(a => a.classList.remove('active'));
+    document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
+
+    scrollToElement(elements.hakkimda);
+    currentSectionKey = null;
+}
+
+function scrollToElement(el) {
+    el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+function toggleSidebar() {
+    elements.sidebar.classList.toggle('active');
+}
