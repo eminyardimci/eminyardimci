@@ -189,7 +189,7 @@ ul {
 /* Yıl – İçeride, taşmasız, orantılı ve dengeli font */
 .project-year {
     position: static; /* Taşma tamamen yok */
-    font-size: clamp(45px, 6vw, 70px); /* Daha küçük ve orantılı */
+    font-size: clamp(40px, 5vw, 65px); /* Daha küçük ve orantılı */
     font-weight: bold;
     color: #dc2626;
     margin-bottom: 20px;
