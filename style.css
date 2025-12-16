@@ -58,23 +58,32 @@ body {
 
 /* Hero */
 .hero {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 60px;
     max-width: 1200px;
     margin: 0 auto 80px;
-    align-items: start;
 }
 
-.photo img {
-    width: 100%;
+.hero-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-header h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.photo {
+    width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.text h1 {
-    font-size: 60px;
-    margin-bottom: 40px;
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .columns {
@@ -125,6 +134,7 @@ ul {
     font-size: 80px;
     font-weight: bold;
     color: #000;
+    line-height: 1;
 }
 
 .project-section h2 {
@@ -191,9 +201,12 @@ ul {
         padding: 40px 20px;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .hero-header h1 {
+        font-size: 48px;
+    }
+
+    .photo {
+        width: 250px;
     }
 
     .columns {
@@ -212,5 +225,9 @@ ul {
     .project-year {
         font-size: 60px;
         top: -20px;
+    }
+
+    .project-section h2 {
+        font-size: 40px;
     }
 }
