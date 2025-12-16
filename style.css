@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* Blur Overlay – Yumuşak ve mobil dostu */
+/* Blur Overlay */
 .blur-overlay {
     position: fixed;
     inset: 0;
@@ -48,14 +48,8 @@ body {
     z-index: 10;
 }
 
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar li {
-    margin-bottom: 20px;
-}
-
+.sidebar ul { list-style: none; }
+.sidebar li { margin-bottom: 20px; }
 .sidebar a {
     color: white;
     text-decoration: none;
@@ -64,9 +58,7 @@ body {
     font-weight: 500;
     display: block;
 }
-
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar a:hover, .sidebar a.active {
     font-weight: bold;
     text-decoration: underline;
 }
@@ -79,21 +71,9 @@ body {
 }
 
 /* Hero */
-.hero {
-    max-width: 1200px;
-    margin: 0 auto 80px;
-}
-
-.hero-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.hero-header h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
-}
-
+.hero { max-width: 1200px; margin: 0 auto 80px; }
+.hero-header { text-align: center; margin-bottom: 40px; }
+.hero-header h1 { font-size: 60px; margin-bottom: 20px; }
 .photo {
     width: 300px;
     margin: 0 auto;
@@ -101,19 +81,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+.photo img { width: 100%; height: auto; display: block; }
 
-.photo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .col h3 {
     font-size: 18px;
     letter-spacing: 1.2px;
@@ -121,26 +91,13 @@ body {
     margin-bottom: 12px;
     text-transform: uppercase;
 }
+.col p, .col li { font-size: 16px; line-height: 1.8; }
 
-.col p, .col li {
-    font-size: 16px;
-    line-height: 1.8;
-}
+ul { padding-left: 20px; margin: 10px 0 30px; }
 
-ul {
-    padding-left: 20px;
-    margin: 10px 0 30px;
-}
-
-/* Contact Links */
-.contact-links {
-    list-style: none;
-}
-
-.contact-links li {
-    margin-bottom: 12px;
-}
-
+/* Contact */
+.contact-links { list-style: none; }
+.contact-links li { margin-bottom: 12px; }
 .contact-links a {
     color: #1e293b;
     text-decoration: none;
@@ -150,23 +107,15 @@ ul {
     gap: 10px;
     transition: color 0.3s;
 }
+.contact-links a:hover { color: #dc2626; }
+.contact-links i { font-size: 20px; width: 24px; color: #dc2626; }
 
-.contact-links a:hover {
-    color: #dc2626;
-}
-
-.contact-links i {
-    font-size: 20px;
-    width: 24px;
-    color: #dc2626;
-}
-
-/* Project Section – Orantılı fontlar ve taşma kontrollü */
+/* Project Section – Fontlar orantılı, yıl taşmalı ama dengeli */
 .project-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
-    padding: 80px 40px 60px; /* Üst padding taşma için artırıldı */
+    padding: 80px 40px 60px; /* Üst padding taşma için yeterli */
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -186,30 +135,30 @@ ul {
     visibility: visible;
 }
 
-/* Yıl – Orantılı font, dışarı taşmalı ama dengeli */
+/* Yıl – Orantılı font, dışarı taşmalı, taşma kontrollü */
 .project-year {
     position: absolute;
     top: -35px;
-    left: 20px;
-    font-size: clamp(70px, 8vw, 90px); /* Daha orantılı ve küçük */
+    left: 30px;
+    font-size: clamp(65px, 8vw, 85px); /* Orantılı ve dengeli */
     font-weight: bold;
     color: #dc2626;
     line-height: 1;
     background: #f9fafb;
-    padding: 0 20px;
+    padding: 0 25px;
     white-space: nowrap;
+    border-radius: 10px 10px 0 0; /* Hafif yuvarlak köşe (isteğe bağlı, daha şık) */
 }
 
 .project-section h2 {
-    font-size: clamp(40px, 6vw, 50px); /* Başlık orantılı */
+    font-size: clamp(38px, 5vw, 48px); /* Başlık dengeli */
     margin-bottom: 30px;
     color: #1e293b;
 }
 
 .project-section p {
-    font-size: clamp(16px, 2.5vw, 18px); /* Metin okunaklı ve orantılı */
+    font-size: clamp(16px, 2.5vw, 18px); /* Metin okunaklı */
     line-height: 1.8;
-    max-width: 900px;
 }
 
 .close-btn {
@@ -265,7 +214,7 @@ ul {
     z-index: 100;
 }
 
-/* Responsive */
+/* Responsive – Mobilde önceki güzel görünüm geri döndü */
 @media (max-width: 900px) {
     .blur-overlay {
         backdrop-filter: blur(8px);
@@ -311,14 +260,14 @@ ul {
     }
 
     .project-year {
-        font-size: clamp(60px, 10vw, 75px);
-        top: -25px;
-        left: 10px;
-        padding: 0 10px;
+        font-size: clamp(55px, 10vw, 70px); /* Mobilde orantılı ve güzel */
+        top: -28px;
+        left: 15px;
+        padding: 0 15px;
     }
 
     .project-section h2 {
-        font-size: clamp(32px, 8vw, 40px);
+        font-size: clamp(32px, 7vw, 40px);
     }
 
     .project-section p {
