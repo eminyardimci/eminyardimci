@@ -1,41 +1,74 @@
-// Languages ve sections aynı kaldı (değiştirmedim)
+// Cache'lenmiş DOM elemanları
+const elements = {
+    navLinks: document.querySelectorAll('.nav-link'),
+    projectDetail: document.getElementById('project-detail'),
+    projectYear: document.getElementById('project-year'),
+    projectContent: document.getElementById('project-content'),
+    hakkimda: document.getElementById('hakkimda'),
+    languageToggle: document.getElementById('language-toggle'),
+    sidebar: document.querySelector('.sidebar'),
+    body: document.body
+};
 
-// Variables
+// Dil ve bölüm durumu
 let currentLang = localStorage.getItem('lang') || 'tr';
 let currentSectionKey = null;
+let isTransitioning = false; // Tekrarlanan geçiş önleme
 
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const sectionKey = link.dataset.section;
-        showSection(sectionKey);
-        document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-        if (window.innerWidth <= 900) {
-            toggleSidebar();
-        }
+// Event Delegation: Tüm nav-link'ler için tek listener
+document.querySelector('.sidebar').addEventListener('click', (e) => {
+    const link = e.target.closest('.nav-link');
+    if (!link) return;
+
+    e.preventDefault();
+    const sectionKey = link.dataset.section;
+
+    // Aynı bölüme tekrar tıklanırsa hiçbir şey yapma
+    if (currentSectionKey === sectionKey && sectionKey !== 'hakkimda') return;
+
+    showSection(sectionKey);
+
+    // Aktif sınıf yönetimi
+    elements.navLinks.forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
+
+    // Mobil: sidebar'ı kapat
+    if (window.innerWidth <= 900) {
+        toggleSidebar();
+    }
+});
+
+// Dil değiştirme
+elements.languageToggle.addEventListener('click', toggleLanguage);
+
+// Sayfa yüklendiğinde başlangıç ayarları
+window.addEventListener('load', () => {
+    setLanguage(currentLang, false); // false: tekrar render etme
+    elements.navLinks.forEach(link => {
+        if (link.dataset.section === 'hakkimda') link.classList.add('active');
     });
 });
 
-window.addEventListener('load', () => {
-    setLanguage(currentLang);
-    document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
-    updateToggleButton();
-});
+// Dil değiştirme fonksiyonu - optimize edilmiş
+function setLanguage(lang, reRenderSection = true) {
+    if (lang === currentLang) return; // Aynı dilse işlem yapma
 
-function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
+
+    // Tüm data-lang-key elemanlarını tek seferde güncelle
     document.querySelectorAll('[data-lang-key]').forEach(el => {
         const key = el.dataset.langKey;
-        if (languages[lang][key]) {
-            el.innerHTML = languages[lang][key];
-        }
+        const text = languages[lang][key];
+        if (text) el.innerHTML = text;
     });
-    if (currentSectionKey) {
+
+    elements.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
+
+    // Eğer bir proje açıksa içeriğini yeniden render et
+    if (reRenderSection && currentSectionKey && currentSectionKey !== 'hakkimda') {
         showSection(currentSectionKey);
     }
-    updateToggleButton();
 }
 
 function toggleLanguage() {
@@ -43,46 +76,62 @@ function toggleLanguage() {
     setLanguage(newLang);
 }
 
-function updateToggleButton() {
-    const button = document.getElementById('language-toggle');
-    button.textContent = currentLang === 'tr' ? 'EN' : 'TR';
-}
-
+// Bölüm gösterme - yüksek performanslı
 function showSection(key) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
     currentSectionKey = key === 'hakkimda' ? null : key;
-    const projectDetail = document.getElementById('project-detail');
 
     if (key === 'hakkimda') {
-        projectDetail.classList.remove('visible');
-        setTimeout(() => projectDetail.classList.add('hidden'), 400);
-        document.body.classList.remove('project-open');
-        document.getElementById('hakkimda').scrollIntoView({ behavior: 'smooth' });
+        closeProjectDetail();
+        scrollToElement(elements.hakkimda);
     } else {
         const section = sections[currentLang][key];
-        document.getElementById('project-year').textContent = section.year;
-        document.getElementById('project-content').innerHTML = `
-            <h2>${section.title}</h2>
-            <p>${section.description}</p>
-        `;
-        projectDetail.classList.remove('hidden');
-        setTimeout(() => projectDetail.classList.add('visible'), 10);
-        document.body.classList.add('project-open');
-        projectDetail.scrollIntoView({ behavior: 'smooth' });
+        elements.projectYear.textContent = section.year;
+        elements.projectContent.innerHTML = `<h2>${section.title}</h2><p>${section.description}</p>`;
+
+        // Önce visible yap, sonra hidden kaldır
+        elements.projectDetail.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            elements.projectDetail.classList.add('visible');
+            elements.body.classList.add('project-open');
+            scrollToElement(elements.projectDetail);
+        });
     }
+
+    setTimeout(() => isTransitioning = false, 500);
+}
+
+function closeProjectDetail() {
+    elements.projectDetail.classList.remove('visible');
+    elements.body.classList.remove('project-open');
+
+    setTimeout(() => {
+        elements.projectDetail.classList.add('hidden');
+    }, 400);
 }
 
 function closeSection() {
-    const projectDetail = document.getElementById('project-detail');
-    projectDetail.classList.remove('visible');
-    setTimeout(() => projectDetail.classList.add('hidden'), 400);
-    document.body.classList.remove('project-open');
-    
-    document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+    if (isTransitioning) return;
+    closeProjectDetail();
+
+    elements.navLinks.forEach(a => a.classList.remove('active'));
     document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
-    document.getElementById('hakkimda').scrollIntoView({ behavior: 'smooth' });
+
+    scrollToElement(elements.hakkimda);
     currentSectionKey = null;
 }
 
+// Smooth scroll ama performans dostu
+function scrollToElement(el) {
+    el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Mobil sidebar toggle
 function toggleSidebar() {
-    document.querySelector('.sidebar').classList.toggle('active');
+    elements.sidebar.classList.toggle('active');
 }
