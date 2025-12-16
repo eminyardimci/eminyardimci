@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* Blur Overlay – Arka plan blur (performanslı ve yumuşak) */
+/* Blur Overlay – Yumuşak ve performanslı */
 .blur-overlay {
     position: fixed;
     inset: 0;
@@ -161,12 +161,12 @@ ul {
     color: #dc2626;
 }
 
-/* Project Section – Yıl sorunu çözüldü, içeride ve taşmasız */
+/* Project Section – Yıl tamamen içeride, taşmasız ve şık */
 .project-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
-    padding: 60px 40px; /* Üst padding güvenli */
+    padding: 60px 40px; /* Güvenli padding */
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -186,9 +186,9 @@ ul {
     visibility: visible;
 }
 
-/* Yıl artık içeride, taşma yok, büyük ve şık */
+/* Yıl vurgusu – Büyük, içeride, taşma yok */
 .project-year {
-    position: static; /* Dışarı taşma kaldırıldı */
+    position: static; /* Taşma kaldırıldı */
     font-size: clamp(60px, 10vw, 100px);
     font-weight: bold;
     color: #dc2626;
@@ -267,7 +267,7 @@ ul {
 /* Responsive */
 @media (max-width: 900px) {
     .blur-overlay {
-        backdrop-filter: blur(8px); /* Mobil performans için hafif */
+        backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
     }
 
