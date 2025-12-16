@@ -8,6 +8,12 @@ body {
     background: #f9fafb;
     color: #1e293b;
     display: flex;
+    transition: filter 0.4s ease;
+}
+
+/* Blur when project open */
+body.project-open {
+    filter: blur(8px) brightness(0.7);
 }
 
 /* Sidebar */
@@ -21,7 +27,8 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.4s ease;
+    z-index: 10;
 }
 
 .sidebar ul {
@@ -54,6 +61,7 @@ body {
     margin-left: 250px;
     padding: 60px 40px;
     width: calc(100% - 250px);
+    transition: filter 0.4s ease;
 }
 
 /* Hero */
@@ -111,45 +119,88 @@ ul {
     margin: 10px 0 30px;
 }
 
-.muted {
-    color: #64748b;
-    margin-bottom: 30px;
+/* Contact links with icons */
+.contact-links {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-links li {
+    margin-bottom: 12px;
+}
+
+.contact-links a {
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+
+.contact-links a:hover {
+    color: #2563eb;
+}
+
+.contact-links i {
+    font-size: 20px;
+    width: 24px;
+    color: #2563eb;
 }
 
 /* Project Section */
 .project-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 80px 60px 60px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.project-section.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .project-year {
     position: absolute;
-    top: -30px;
-    left: 0;
-    font-size: 80px;
+    top: -40px;
+    left: 20px;
+    font-size: clamp(60px, 10vw, 100px);
     font-weight: bold;
-    color: #000;
+    color: #dc2626;
     line-height: 1;
+    background: #f9fafb;
+    padding: 0 20px;
 }
 
 .project-section h2 {
     font-size: 50px;
     margin-bottom: 30px;
+    color: #1e293b;
 }
 
 .project-section p {
     font-size: 18px;
     line-height: 1.8;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .close-btn {
-    padding: 12px 24px;
+    padding: 12px 30px;
     background: #2563eb;
     color: white;
     border: none;
@@ -157,6 +208,11 @@ ul {
     cursor: pointer;
     margin-top: 40px;
     font-size: 16px;
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: #1d4ed8;
 }
 
 .hidden {
@@ -177,6 +233,7 @@ ul {
     cursor: pointer;
     box-shadow: 0 12px 30px rgba(37,99,235,0.35);
     display: none;
+    z-index: 20;
 }
 
 /* Language Toggle */
@@ -205,7 +262,6 @@ ul {
 
     .sidebar {
         transform: translateX(-100%);
-        z-index: 10;
         padding-top: 100px;
     }
 
@@ -237,16 +293,18 @@ ul {
     }
 
     .project-section {
-        padding: 40px 20px;
+        padding: 60px 20px 40px;
+        width: 95%;
     }
 
     .project-year {
-        font-size: 60px;
-        top: -20px;
+        top: -30px;
+        left: 10px;
+        font-size: clamp(50px, 12vw, 80px);
     }
 
     .project-section h2 {
-        font-size: 40px;
+        font-size: 38px;
     }
 
     .language-toggle {
