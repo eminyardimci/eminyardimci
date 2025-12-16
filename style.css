@@ -4,71 +4,104 @@
 
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background: linear-gradient(180deg, #f8fafc, #eef2f7);
-  color: #1e293b;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f4f6f8;
+  color: #0f172a;
 }
 
-/* ANA GRID */
-.cv-hero {
+/* SAYFA */
+.page {
   display: grid;
-  grid-template-columns: 260px 1fr 1fr;
-  gap: 50px;
-
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  grid-template-columns: 320px 1fr;
   min-height: 100vh;
 }
 
-/* FOTO */
-.cv-photo {
-  display: flex;
-  justify-content: center;
+/* SIDEBAR */
+.sidebar {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: white;
+  padding: 40px 30px;
 }
 
-.cv-photo img {
+.sidebar img {
   width: 100%;
-  max-width: 240px;
-  border-radius: 22px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* BLOKLAR */
-.block {
-  background: #ffffff;
-  padding: 22px 26px;
   border-radius: 18px;
   margin-bottom: 24px;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
 }
 
-/* BAŞLIKLAR */
+.sidebar h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.role {
+  display: block;
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.sidebar-block {
+  margin-top: 30px;
+}
+
+.sidebar-block h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+
+/* CONTENT */
+.content {
+  padding: 60px 70px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
 h1 {
-  font-size: 48px;
-  margin-bottom: 24px;
+  font-size: 42px;
+  margin-bottom: 16px;
 }
 
 h3 {
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: #2563eb;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* METİN */
-p, li {
-  font-size: 14px;
-  line-height: 1.6;
+.lead {
+  font-size: 18px;
+  max-width: 700px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
 }
 
 ul {
   padding-left: 18px;
-  margin: 0;
 }
 
-.sub-edu {
-  margin-top: 12px;
+.muted {
+  color: #64748b;
+  margin-top: 10px;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  background: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
 }
 
 /* PROJELER BUTONU */
@@ -86,14 +119,17 @@ ul {
   box-shadow: 0 12px 30px rgba(37,99,235,0.35);
 }
 
-.projects-btn:hover {
-  background: #1e40af;
-}
-
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .cv-hero {
+  .page {
     grid-template-columns: 1fr;
-    padding: 40px 20px;
+  }
+
+  .content {
+    padding: 40px 24px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
   }
 }
