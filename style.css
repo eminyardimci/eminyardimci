@@ -187,6 +187,10 @@ body.dark-mode .name-title {
     box-shadow: 0 8px 25px rgba(220,38,38,0.4);
 }
 
+.cv-download-btn i {
+    margin-right: 8px;
+}
+
 .photo {
     width: 300px;
     margin: 0 auto 20px;
@@ -248,6 +252,7 @@ body.dark-mode .photo {
 
 .contact-links i {
     color: #dc2626;
+    margin-right: 8px;
     transition: transform 0.3s;
 }
 
@@ -320,6 +325,13 @@ body.dark-mode .photo {
     font-size: 17px;
     font-weight: bold;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.images-button i, .close-btn i {
+    font-size: 20px;
 }
 
 .images-button:hover, .close-btn:hover {
@@ -402,9 +414,15 @@ body.dark-mode .images-button {
     transform: scale(1.08);
 }
 
+/* Dark mode toggle ikon rengi garanti */
 .dark-mode-toggle i {
     pointer-events: none;
     font-size: 24px;
+    color: white;
+}
+
+body.dark-mode .dark-mode-toggle i {
+    color: #1e293b;
 }
 
 body.dark-mode .language-toggle,
@@ -413,11 +431,7 @@ body.dark-mode .dark-mode-toggle {
     color: #1e293b;
 }
 
-body.dark-mode .dark-mode-toggle i {
-    color: #1e293b;
-}
-
-/* Projeler butonu - SADECE MOBİLDE GÖZÜKÜR */
+/* Projeler butonu - sadece mobilde */
 .projects-btn {
     display: none;
     position: fixed;
@@ -446,10 +460,9 @@ body.dark-mode .dark-mode-toggle i {
     transform: scale(1.05);
 }
 
-/* Mobil ayarlar */
 @media (max-width: 900px) {
     .projects-btn {
-        display: flex; /* Sadece mobilde görünür */
+        display: flex;
     }
 
     .sidebar {
@@ -466,26 +479,12 @@ body.dark-mode .dark-mode-toggle i {
         padding: 30px 20px;
     }
 
-    .hero {
-        max-width: 100%;
-    }
-
-    .columns {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
     .name-title {
         font-size: 36px;
     }
 
     .profession-title {
         font-size: 30px;
-    }
-
-    .cv-download-btn {
-        font-size: 16px;
-        padding: 10px 24px;
     }
 
     .language-toggle, .dark-mode-toggle {
