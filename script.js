@@ -67,7 +67,7 @@ const sections = {
             images: [
                 'assets/projects/robo1.png',
                 'assets/projects/robo2.png',
-                'assets/projects/robo3.png',
+                'assets/projects/robo.jpg',
                 'assets/projects/robo4.png',
                 'assets/projects/robo5.png',
                 'assets/projects/robo6.png'
@@ -77,7 +77,7 @@ const sections = {
             year: '2023-2024', 
             title: 'KOSGEB Destekli Robot Kol Projesi', 
             description: 'Sonel Yazılım firmasında bir yıl boyunca, KOSGEB destekli bir proje kapsamında ERP entegreli robot kol geliştirilmesinde görev aldım. Proje kapsamında, üretilen parçalar görüntü işleme yöntemleriyle kalite kontrol analizine tabi tutulmuş, uygun bulunan ürünler otomatik olarak algılanarak ERP sistemine stok ve üretim bilgileriyle kaydedilmiş, hatalı ürünler ise yeniden üretim sürecine yönlendirilmiştir.<br>Bu projede robot kol prototipinin üretimi, motor kontrol sistemleri ve gömülü sistem donanım–yazılım geliştirme görevlerinden sorumluydum. Geliştirilen sistem, üretim sürecinde insan müdahalesini azaltarak otomatik kalite kontrol ve stok yönetimi sağlamayı hedeflemiştir.', 
-            images: ['assets/projects/kosgeb1.jpg', 'assets/projects/kosgeb2.png'] 
+            images: ['assets/projects/kosgeb.jpg', 'assets/projects/kosgeb2.png'] 
         },
         plcatolyesi: { 
             year: '2024', 
