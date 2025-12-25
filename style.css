@@ -98,13 +98,15 @@ body.dark-mode .col h3 {
 }
 .content {
     margin-left: 250px;
-    padding: 40px 40px;
+    padding: 40px 20px;
     width: calc(100% - 250px);
-    max-width: 1400px;
-    margin: 0 auto;
+    max-width: none; /* Kaldırdım, sınırsız genişlik */
+    display: flex;
+    justify-content: center; /* İçeriği ortala */
 }
 .hero {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 .hero-header {
@@ -161,11 +163,11 @@ body.dark-mode .photo {
 }
 .columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 60px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(400px, 550px)); /* Daha dengeli sütunlar */
+    gap: 80px;
+    justify-content: center; /* Grid'i ortala */
+    align-items: start;
+    width: 100%;
 }
 .col h3 {
     font-size: 20px;
@@ -363,11 +365,14 @@ body.dark-mode .dark-mode-toggle i {
     color: #1e293b;
 }
 @media (max-width: 900px) {
-    .content {
+.content {
+        margin-left: 0;
         padding: 30px 20px;
     }
     .columns {
         grid-template-columns: 1fr;
+        gap: 50px;
+        justify-content: center;
     }
     .profession-title {
         font-size: 28px;
