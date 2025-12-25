@@ -66,30 +66,30 @@ const sections = {
             description: 'Robotaksi Binek Otonom Araç Yarışması’nın amacı; otonom sürüş kabiliyetlerine sahip, güvenli, verimli ve gerçek şehir senaryolarını simüle edebilen binek araçların tasarlanması ve geliştirilmesidir. Yarışma kapsamında ekipler; algılama, karar verme, kontrol ve araç entegrasyonu gibi disiplinlerde yetkinliklerini ortaya koymaktadır.<br><br>2023 yılında Robotaksi Binek Otonom Araç Yarışması’nda ekibimizle 3.’lük elde ederek En İyi Takım Ruhu ödülünü kazandık. Bu projede aracın elektronik kart tasarımı, elektrik sistemi ve gömülü sistem geliştirmelerinden sorumluydum; sensör ve aktüatör entegrasyonlarını gerçekleştirerek aracın güvenli ve verimli çalışmasını sağladım.<br><br>2024 yılında takım kaptanı olarak, önceki aracımızı hem elektriksel hem de mekanik açıdan baştan tasarlayıp geliştirdik ve buna ek olarak ikinci bir araç ürettik. Projede gömülü sistem yazılımı, elektronik kart tasarımı ve takım organizasyonu görevlerini üstlendim; mekanik çalışmalara da aktif katkı sağladım. Ayrıca Baykar, T.C. Gençlik ve Spor Bakanlığı, Uzay Spor, Ensar Kalıp, Mesan Elektrik ve Düzce Belediyesi ile sponsorluk görüşmeleri yaparak destek sağladım.<br><br>2025 yılında, önceki yıllarda edinilen deneyimler doğrultusunda geliştirilen yeni araç projesinde elektrik ekibinde aktif görev aldım ve mekanik çalışmalara destek sağladım. Bu süreçte Cybertruck tasarım yaklaşımından esinlenilen yeni bir araç tasarlandı; projede gömülü sistem yazılımı ve elektronik kart tasarımı görevlerini yürüttüm.', 
             images: [
                 'assets/projects/robo1.png',
-                'assets/projects/robo2.jpg',
-                'assets/projects/robo3.jpg',
-                'assets/projects/robo4.jpg',
-                'assets/projects/robo5.jpg',
-                'assets/projects/robo6.jpg'
+                'assets/projects/robo2.png',
+                'assets/projects/robo3.png',
+                'assets/projects/robo4.png',
+                'assets/projects/robo5.png',
+                'assets/projects/robo6.png'
             ] 
         },
         robotkol: { 
             year: '2023-2024', 
             title: 'KOSGEB Destekli Robot Kol Projesi', 
             description: 'Sonel Yazılım firmasında bir yıl boyunca, KOSGEB destekli bir proje kapsamında ERP entegreli robot kol geliştirilmesinde görev aldım. Proje kapsamında, üretilen parçalar görüntü işleme yöntemleriyle kalite kontrol analizine tabi tutulmuş, uygun bulunan ürünler otomatik olarak algılanarak ERP sistemine stok ve üretim bilgileriyle kaydedilmiş, hatalı ürünler ise yeniden üretim sürecine yönlendirilmiştir.<br>Bu projede robot kol prototipinin üretimi, motor kontrol sistemleri ve gömülü sistem donanım–yazılım geliştirme görevlerinden sorumluydum. Geliştirilen sistem, üretim sürecinde insan müdahalesini azaltarak otomatik kalite kontrol ve stok yönetimi sağlamayı hedeflemiştir.', 
-            images: ['assets/projects/kosgeb1.jpg', 'assets/projects/kosgeb2.png'] 
+            images: ['assets/projects/kosgeb1.png', 'assets/projects/kosgeb2.png'] 
         },
         plcatolyesi: { 
             year: '2024', 
             title: 'PLC-Lojik Atölyesi Çalışmaları', 
             description: 'Düzce Üniversitesi Mekatronik Mühendisliği bölümüne kazandırılan PLC Atölyesi kapsamında; PLC deney setleri, FESTO endüstriyel deney standları ve sıvı seviye kontrol mekanizması üzerinde PLC programlama çalışmalarında aktif olarak görev aldım.<br>Bu çalışmaların yanı sıra, PLC’den bağımsız olarak kullanılan lojik kapı deney setlerinin bakım, onarım ve yenileme süreçlerinde yer aldım. Mevcut deney setlerinde bulunan bozulmuş LED’ler, lojik kapı entegreleri ve dirençler tespit edilerek değiştirilmiş, bağlantılar ve lehimler elden geçirilmiş ve setlerin elektriksel sağlamlık ve fonksiyon kontrolleri gerçekleştirilmiştir. Yapılan çalışmalar sonucunda deney setleri, dijital mantık konularının uygulamalı olarak sorunsuz şekilde işlenebileceği hale getirilmiştir.<br>Gerçekleştirilen bu çalışmalar, öğrencilerin temel elektronik ve dijital mantık prensiplerini güvenli ve doğru şekilde öğrenmelerini sağlamayı amaçlamıştır.', 
-            images: ['assets/projects/plc-lojik1.jpg', 'assets/projects/plc-lojik3.jpg', 'assets/projects/plc-lojik2.jpg'] 
+            images: ['assets/projects/plc-lojik1.png', 'assets/projects/plc-lojik3.png', 'assets/projects/plc-lojik2.png'] 
         },
         egitmenlik: { 
             year: '2023-2025', 
             title: 'T3 Vakfı Deneyap Atölyeleri – Eğitmenlik', 
             description: 'T3 Vakfı Deneyap Teknoloji Atölyeleri’nde, Robotik ve Kodlama, Elektronik Programlama ve Nesnelerin İnterneti (IoT), İleri Robotik, Nanoteknoloji ve Tasarım ve Üretim alanlarında eğitmenlik yaptım. Deneyap Atölyeleri, öğrencilerin 36 aylık proje temelli eğitim programı kapsamında bu teknoloji alanlarında hem teorik bilgi hem de uygulamalı deneyim kazanmalarını amaçlayan bir eğitim modelidir.<br>Bu süreçte öğrencilerle yürüttüğüm eğitimlerde robotik sistemlerin temel prensipleri, sensör ve aktüatör kullanımı, algoritma tabanlı çözüm geliştirme yöntemleri, mikrodenetleyici programlama ve gömülü sistem entegrasyonu konularına odaklandım. Elektronik programlama ve IoT derslerinde DENEYAP Kart gibi donanımlar aracılığıyla giriş seviyesinden ileri seviye çözümlere kadar elektronik devre elemanlarının kullanımı, sensör verilerinin işlenmesi ve kablosuz iletişim temelli prototiplerin geliştirilmesi üzerine uygulamalı çalışmalar yaptırdım.<br>Robotik ve İleri Robotik içerikli eğitimlerimde, öğrencilere mobil robot tasarımı, kontrol mantıkları, robot kinematiği ve proje geliştirme süreçlerini uygulamalı olarak anlattım; takım tabanlı proje üretimlerine rehberlik ettim. Nanoteknoloji ve Tasarım ve Üretim alanlarında ise öğrencilerin üretim odaklı düşünme ve problem çözme becerilerini geliştirmek için 3D tasarım araçları, 3D yazıcılar ve çeşitli prototipleme ekipmanlarıyla çalıştık. Eğitimler süresince öğrencilerin proje geliştirme, takım çalışması ve kritik düşünme becerilerini artırmak amacıyla teknik rehberlik sağladım ve çıktıları değerlendirdim.', 
-            images: ['assets/projects/eğitmen1.jpg', 'assets/projects/eğitmen2.jpg']
+            images: ['assets/projects/eğitmen1.png', 'assets/projects/eğitmen2.png']
         },
         scada: { 
             year: '2025', 
@@ -101,7 +101,7 @@ const sections = {
             year: '2025', 
             title: 'Claw Grabber', 
             description: 'Mevcut görsel ve referans tasarımlar incelenerek tersine mühendislik metotları uygulanmış, bu doğrultuda mekanik yapıya sahip bir Claw Grabber mekanizması tasarlanmıştır.', 
-            images: ['assets/projects/claw.jpg'] 
+            images: ['assets/projects/claw.png'] 
         },
         bitirme: { 
             year: '2025', 
