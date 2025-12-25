@@ -205,9 +205,9 @@ function toggleDarkMode() {
     els.body.classList.toggle('dark-mode');
     if (els.body.classList.contains('dark-mode')) {
         localStorage.setItem('darkMode', 'enabled');
-        els.darkModeToggle.textContent = 'Light Mode';
+        els.darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';  // Karanlık mod aktif → ay ikonu
     } else {
         localStorage.removeItem('darkMode');
-        els.darkModeToggle.textContent = 'Dark Mode';
+        els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';   // Aydınlık mod → güneş ikonu
     }
 }
