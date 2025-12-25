@@ -407,9 +407,9 @@ body.dark-mode .dark-mode-toggle i {
     }
     .language-toggle,
     .dark-mode-toggle {
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
         top: 10px;
     }
     .language-toggle {
