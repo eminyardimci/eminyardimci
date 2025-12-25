@@ -12,7 +12,7 @@ const languages = {
         newTech: 'Yeni teknolojileri öğrenme ve uygulama', timeMgmt: 'Zaman yönetimi ve planlama',
         workHistoryTitle: 'Çalışma Geçmişi', mavili: 'Mavili Elektronik (Stajyer)', petkom: 'Petkom Yazılım (Stajyer)',
         pektam: 'Pektam Pano (Stajyer)', sunny: 'Sunny Elektronik (Stajyer)', orbiba: 'Orbiba Robotics (Stajyer)',
-        sonel: 'Sonel Yazılım – Ar-Ge', t3: 'T3 Vakfı – Eğitmen', skillsTitle: 'Beceriler',
+        sonel: 'Sonel Yazılım – Ar-Ge Mühendisi', t3: 'T3 Vakfı – Eğitmen', skillsTitle: 'Beceriler',
         electronicDesign: 'Elektronik Kart Tasarımı', embedded: 'Gömülü Sistem Yazılımı',
         plc: 'PLC / HMI / SCADA', '3dModeling': '3D Katı Modelleme', certificatesTitle: 'Sertifikalar',
         stm32: 'STM32', freertos: 'FreeRTOS', altium: 'Altium PCB', cProg: 'C Programlama',
