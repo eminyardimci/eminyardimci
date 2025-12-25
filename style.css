@@ -206,28 +206,33 @@ ul {
     line-height: 1.8;
     max-width: 900px;
 }
-/* Yeni Images Button – Yaratıcı versiyon */
+/* Yeni Images Button – Yaratıcı ve görünür versiyon */
 .images-button {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
+    display: block;
+    margin: 20px auto 10px;
+    padding: 10px 20px;
+    background: #dc2626;
+    color: white;
     border: none;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 28px;
-    color: #dc2626;
-    transition: transform 0.2s ease, color 0.2s ease;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
 }
 .images-button:hover {
-    transform: translateY(-50%) scale(1.2);
-    color: #b91c1c;
+    background: #b91c1c;
+    transform: scale(1.05);
 }
 body.dark-mode .images-button {
-    color: #ffcc00;
+    background: #ffcc00;
+    color: #1e293b;
 }
 body.dark-mode .images-button:hover {
-    color: #ffd633;
+    background: #ffd633;
 }
 /* Gallery Section */
 .gallery-section {
@@ -380,7 +385,7 @@ body.dark-mode .dark-mode-toggle {
         right: 80px;
     }
     .images-button {
-        font-size: 24px; /* Mobilde küçült */
-        right: 20px;
+        font-size: 14px; /* Mobilde küçült */
+        padding: 8px 16px;
     }
 }
