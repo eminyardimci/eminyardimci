@@ -206,30 +206,28 @@ ul {
     line-height: 1.8;
     max-width: 900px;
 }
-.arrow-button {
+/* Yeni Images Button – Yaratıcı versiyon */
+.images-button {
     position: absolute;
     right: 40px;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 28px;
     color: #dc2626;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
-body.dark-mode .arrow-button {
+.images-button:hover {
+    transform: translateY(-50%) scale(1.2);
+    color: #b91c1c;
+}
+body.dark-mode .images-button {
     color: #ffcc00;
 }
-.arrow-button:hover::after {
-    content: 'Resimler';
-    position: absolute;
-    top: -30px;
-    right: 0;
-    background: #000;
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 14px;
+body.dark-mode .images-button:hover {
+    color: #ffd633;
 }
 /* Gallery Section */
 .gallery-section {
@@ -380,5 +378,9 @@ body.dark-mode .dark-mode-toggle {
     .dark-mode-toggle {
         top: 10px;
         right: 80px;
+    }
+    .images-button {
+        font-size: 24px; /* Mobilde küçült */
+        right: 20px;
     }
 }
