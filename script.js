@@ -208,13 +208,8 @@ function setLanguage(lang, reRender = true) {
     });
     els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
 
-    // CV indirme linki güncelle
     const cvBtn = document.getElementById('cv-download');
-    if (lang === 'tr') {
-        cvBtn.href = 'assets/projects/Mehmet Emin Yardımcı_CV.pdf';
-    } else {
-        cvBtn.href = 'assets/projects/Mehmet Emin Yardımcı_CV_EN.pdf';
-    }
+    cvBtn.href = lang === 'tr' ? 'assets/projects/Mehmet Emin Yardımcı_CV.pdf' : 'assets/projects/Mehmet Emin Yardımcı_CV_EN.pdf';
 
     if (currentSectionKey && currentSectionKey !== 'hakkimda') {
         showSection(currentSectionKey);
@@ -277,7 +272,7 @@ function openGallery(images) {
         img.style.transition = 'all 0.5s ease';
 
         img.onclick = (e) => {
-            e.stopPropagation(); // Tıklama yayılmasını engelle
+            e.stopPropagation();
 
             // Tüm resimleri küçült
             document.querySelectorAll('#gallery-carousel img').forEach(i => {
@@ -295,7 +290,7 @@ function openGallery(images) {
     els.galleryModal.classList.remove('hidden');
     requestAnimationFrame(() => els.galleryModal.classList.add('visible'));
 
-    // Modal dışına tıklayınca tüm zoom'ları kapat
+    // Modal dışına tıklayınca kapat
     els.galleryModal.onclick = (e) => {
         if (e.target === els.galleryModal) {
             document.querySelectorAll('#gallery-carousel img').forEach(i => {
@@ -306,10 +301,10 @@ function openGallery(images) {
 }
 
 function closeGallery() {
-    els.galleryModal.classList.remove('visible');
     document.querySelectorAll('#gallery-carousel img').forEach(i => {
         i.classList.remove('zoomed');
     });
+    els.galleryModal.classList.remove('visible');
     setTimeout(() => {
         els.galleryModal.classList.add('hidden');
         els.galleryCarousel.innerHTML = '';
