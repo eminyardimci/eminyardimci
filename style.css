@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: "Georgia", serif;
     background: #f9fafb;
@@ -12,30 +13,32 @@ body {
     min-height: 100vh;
     transition: background 0.3s, color 0.3s;
 }
-/* Dark Mode */
+
 body.dark-mode {
     background: #1e293b;
     color: #f9fafb;
 }
+
 body.dark-mode .sidebar {
     background: #b91c1c;
 }
-body.dark-mode .project-section {
+
+body.dark-mode .project-section, body.dark-mode .gallery-section {
     background: #2d3e50;
 }
-body.dark-mode .gallery-section {
-    background: #2d3e50;
-}
+
 body.dark-mode .contact-links a {
     color: #f9fafb;
 }
+
 body.dark-mode .contact-links a:hover {
     color: #dc2626;
 }
+
 body.dark-mode .col h3 {
     color: #dc2626;
 }
-/* Blur Overlay – Yumuşak ve mobil dostu */
+
 .blur-overlay {
     position: fixed;
     inset: 0;
@@ -48,17 +51,18 @@ body.dark-mode .col h3 {
     z-index: 90;
     pointer-events: none;
 }
+
 .blur-overlay.active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
-/* Sidebar */
+
 .sidebar {
     width: 250px;
     background: #dc2626;
     color: white;
-    padding: 150px 30px 40px;
+    padding: 80px 30px 40px;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -67,12 +71,15 @@ body.dark-mode .col h3 {
     transition: transform 0.3s ease;
     z-index: 10;
 }
+
 .sidebar ul {
     list-style: none;
 }
+
 .sidebar li {
     margin-bottom: 20px;
 }
+
 .sidebar a {
     color: white;
     text-decoration: none;
@@ -80,89 +87,175 @@ body.dark-mode .col h3 {
     text-transform: uppercase;
     font-weight: 500;
     display: block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s;
 }
-.sidebar a:hover,
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
 .sidebar a.active {
     font-weight: bold;
-    text-decoration: underline;
+    background: rgba(255,255,255,0.15);
+    position: relative;
 }
-/* Content */
+
+.sidebar a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: white;
+    border-radius: 2px;
+}
+
 .content {
     margin-left: 250px;
-    padding: 60px 40px;
+    padding: 40px 20px;
     width: calc(100% - 250px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
-/* Hero */
+
 .hero {
-    max-width: 1200px;
-    margin: 0 auto 80px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
+
 .hero-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
+
 .hero-header h1 {
     font-size: 60px;
     margin-bottom: 20px;
+    color: #dc2626;
 }
+
+.name-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 30px 0 10px;
+    text-align: center;
+}
+
+.profession-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #dc2626;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+body.dark-mode .name-title {
+    color: #f9fafb;
+}
+
+.name-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #dc2626;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.cv-download-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(220,38,38,0.3);
+}
+
+.cv-download-btn:hover {
+    background: #b91c1c;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(220,38,38,0.4);
+}
+
 .photo {
     width: 300px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 24px;
+    padding: 6px;
+    background: linear-gradient(45deg, #dc2626, #b91c1c);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.4s;
 }
+
 .photo img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 18px;
 }
+
+.photo:hover {
+    transform: translateY(-10px);
+}
+
+body.dark-mode .photo {
+    box-shadow: 0 0 30px rgba(220,38,38,0.4);
+}
+
 .columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .col h3 {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 1.2px;
     color: #dc2626;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     text-transform: uppercase;
+    font-weight: bold;
 }
+
 .col p, .col li {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.9;
 }
-ul {
-    padding-left: 20px;
-    margin: 10px 0 30px;
-}
-/* Contact Links */
-.contact-links {
-    list-style: none;
-}
-.contact-links li {
-    margin-bottom: 12px;
-}
+
 .contact-links a {
-    color: #1e293b;
-    text-decoration: none;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.3s;
+    color: #dc2626;
+    font-weight: 500;
+    transition: all 0.3s;
 }
+
 .contact-links a:hover {
-    color: #dc2626;
+    color: #b91c1c;
+    transform: translateX(10px);
 }
+
 .contact-links i {
-    font-size: 20px;
-    width: 24px;
     color: #dc2626;
+    transition: transform 0.3s;
 }
-/* Project Section – Yıl tamamen içeride, taşma yok, orantılı fontlar */
-.project-section {
+
+.contact-links a:hover i {
+    transform: scale(1.3);
+}
+
+.project-section, .gallery-section {
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
@@ -180,126 +273,103 @@ ul {
     visibility: hidden;
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
-.project-section.visible {
+
+.project-section.visible, .gallery-section.visible {
     opacity: 1;
     visibility: visible;
 }
-/* Yıl – İçeride, taşmasız, orantılı ve dengeli font */
+
 .project-year {
-    position: static;
-    font-size: clamp(40px, 5vw, 65px);
-    font-weight: bold;
+    font-size: clamp(60px, 10vw, 100px);
+    font-weight: 900;
     color: #dc2626;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 1;
-    text-align: left;
-    background: transparent;
-    padding: 0;
+    text-align: center;
 }
-.project-section h2 {
-    font-size: clamp(36px, 5vw, 46px);
-    margin-bottom: 30px;
+
+.project-title {
+    font-size: clamp(36px, 6vw, 52px);
+    font-weight: bold;
     color: #1e293b;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.project-section p {
+
+.project-desc {
     font-size: clamp(16px, 2.5vw, 18px);
     line-height: 1.8;
-    max-width: 900px;
+    max-width: 800px;
+    margin: 0 auto 40px;
 }
-/* Yeni Images Button – Yaratıcı ve görünür versiyon */
-.images-button {
-    display: block;
-    margin: 20px auto 10px;
-    padding: 10px 20px;
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.images-button, .close-btn {
+    padding: 14px 32px;
     background: #dc2626;
     color: white;
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s, transform 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    transition: all 0.3s;
 }
-.images-button:hover {
+
+.images-button:hover, .close-btn:hover {
     background: #b91c1c;
-    transform: scale(1.05);
+    transform: translateY(-3px);
 }
+
 body.dark-mode .images-button {
     background: #ffcc00;
     color: #1e293b;
 }
-body.dark-mode .images-button:hover {
-    background: #ffd633;
+
+#gallery-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    padding: 20px 0;
 }
-/* Gallery Section */
-.gallery-section {
-    max-width: 900px;
-    width: 90%;
-    max-height: 85vh;
-    padding: 60px 40px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+#gallery-carousel img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: zoom-in;
+    transition: all 0.5s ease;
+}
+
+#gallery-carousel img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+#gallery-carousel img.zoomed {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: auto;
-    z-index: 110;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transform: translate(-50%, -50%) scale(1.8);
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    z-index: 10000;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    border-radius: 20px;
+    cursor: zoom-out;
 }
-.gallery-section.visible {
-    opacity: 1;
-    visibility: visible;
-}
-#gallery-carousel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-#gallery-carousel img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.close-btn {
-    padding: 12px 30px;
-    background: #dc2626;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 40px auto 0;
-    display: block;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-.close-btn:hover {
-    background: #b91c1c;
-}
-.hidden {
-    display: none;
-}
-/* Buttons – Dil ve Dark Mode butonları aynı stil */
-.projects-btn, .language-toggle, .dark-mode-toggle {
-    padding: 0;
-    background: #dc2626;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-.language-toggle,
-.dark-mode-toggle {
+
+.language-toggle, .dark-mode-toggle {
     width: 48px;
     height: 48px;
     display: flex;
@@ -307,119 +377,129 @@ body.dark-mode .images-button:hover {
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 20px;
+    z-index: 100;
 }
-.language-toggle:hover,
-.dark-mode-toggle:hover,
-.projects-btn:hover {
+
+.language-toggle {
+    right: 20px;
+}
+
+.dark-mode-toggle {
+    right: 100px;
+}
+
+.language-toggle:hover, .dark-mode-toggle:hover {
     background: #b91c1c;
     transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
-.projects-btn {
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    display: none;
-    z-index: 20;
-}
-.language-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-}
-.dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 100px;
-    z-index: 100;
-}
+
 .dark-mode-toggle i {
     pointer-events: none;
-    color: white;
+    font-size: 24px;
 }
-/* Karanlık modda buton renkleri */
+
 body.dark-mode .language-toggle,
-body.dark-mode .dark-mode-toggle,
-body.dark-mode .projects-btn {
+body.dark-mode .dark-mode-toggle {
     background: #ffcc00;
-}
-body.dark-mode .language-toggle {
     color: #1e293b;
 }
+
 body.dark-mode .dark-mode-toggle i {
     color: #1e293b;
 }
 
-/* Responsive – Mobilde de taşmasız ve orantılı */
+/* Projeler butonu - SADECE MOBİLDE GÖZÜKÜR */
+.projects-btn {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    padding: 14px 24px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(220,38,38,0.4);
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+.projects-btn i {
+    font-size: 22px;
+}
+
+.projects-btn:hover {
+    background: #b91c1c;
+    transform: scale(1.05);
+}
+
+/* Mobil ayarlar */
 @media (max-width: 900px) {
-    .blur-overlay {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+    .projects-btn {
+        display: flex; /* Sadece mobilde görünür */
     }
+
     .sidebar {
         transform: translateX(-100%);
-        padding-top: 100px;
+        padding-top: 60px;
     }
+
     .sidebar.active {
         transform: translateX(0);
     }
+
     .content {
         margin-left: 0;
-        width: 100%;
-        padding: 40px 20px;
+        padding: 30px 20px;
     }
-    .hero-header h1 {
-        font-size: 48px;
+
+    .hero {
+        max-width: 100%;
     }
-    .photo {
-        width: 250px;
-    }
+
     .columns {
         grid-template-columns: 1fr;
         gap: 50px;
     }
-    .projects-btn {
-        display: block;
+
+    .name-title {
+        font-size: 36px;
     }
-    .project-section {
-        width: 95%;
-        padding: 50px 20px;
-        max-height: 90vh;
+
+    .profession-title {
+        font-size: 30px;
     }
-    .gallery-section {
-        width: 95%;
-        padding: 50px 20px;
-        max-height: 90vh;
+
+    .cv-download-btn {
+        font-size: 16px;
+        padding: 10px 24px;
     }
-    .project-year {
-        font-size: clamp(40px, 8vw, 60px);
-        margin-bottom: 15px;
-    }
-    .project-section h2 {
-        font-size: clamp(30px, 7vw, 38px);
-    }
-    .project-section p {
-        font-size: clamp(15px, 4vw, 17px);
-    }
-    .language-toggle,
-    .dark-mode-toggle {
+
+    .language-toggle, .dark-mode-toggle {
         width: 44px;
         height: 44px;
         font-size: 18px;
         top: 10px;
     }
-    .language-toggle {
-        right: 10px;
-    }
-    .dark-mode-toggle {
-        right: 70px; /* Dil butonundan biraz solda, çakışmasın */
-    }
-    .images-button {
-        font-size: 14px;
-        padding: 8px 16px;
+
+    .language-toggle { right: 10px; }
+    .dark-mode-toggle { right: 70px; }
+
+    #gallery-carousel img.zoomed {
+        max-width: 98vw;
+        max-height: 90vh;
     }
 }
