@@ -127,6 +127,8 @@ function setLanguage(lang, reRender = true) {
         if (languages[lang][key]) el.innerHTML = languages[lang][key];
     });
     els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
+    // Images button title'ı güncelle (yaratıcı tooltip için)
+    els.imagesArrow.title = lang === 'tr' ? 'Resimler' : 'Images';
     // Her zaman açık modal'ı yeniden render et (sorunu çözer)
     if (currentSectionKey && currentSectionKey !== 'hakkimda') {
         console.log('Açık proje yeniden render ediliyor: ' + currentSectionKey); // Test log
