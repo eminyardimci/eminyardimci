@@ -257,12 +257,9 @@ function openGallery(images) {
     els.galleryCarousel.innerHTML = '';
     images.forEach(src => {
         const container = document.createElement('div');
-        container.style.textAlign = 'center';
-        container.style.margin = '10px';
         const img = document.createElement('img');
         img.src = src;
-        img.style.cursor = 'zoom-in';
-        img.style.transition = 'transform 0.4s ease';
+        img.alt = 'Proje görseli';
         img.onclick = () => img.classList.toggle('zoomed');
         container.appendChild(img);
         els.galleryCarousel.appendChild(container);
