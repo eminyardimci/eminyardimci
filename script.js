@@ -111,6 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang, false);
     applyDarkModeIcon();
     document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
+
+    if (window.innerWidth <= 900) {
+        els.sidebar.classList.remove('active');
+    }
 });
 
 function handleSidebarClick(e) {
@@ -146,26 +150,6 @@ function toggleDarkMode() {
     }
 }
 
-/*function setLanguage(lang, reRender = true) {
-    if (lang === currentLang) return;
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    document.querySelectorAll('[data-lang-key]').forEach(el => {
-        const key = el.dataset.langKey;
-        if (languages[lang][key]) el.innerHTML = languages[lang][key];
-    });
-    els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
-
-    const cvBtn = document.getElementById('cv-download');
-    if (cvBtn) {
-        cvBtn.href = lang === 'tr' ? 'assets/projects/Mehmet Emin Yardımcı_CV.pdf' : 'assets/projects/Mehmet Emin Yardımcı_CV_EN.pdf';
-    }
-
-    if (currentSectionKey && currentSectionKey !== 'hakkimda') {
-        showSection(currentSectionKey);
-    }
-}*/
-
 function setLanguage(lang, reRender = true) {
     if (lang === currentLang) return;
     currentLang = lang;
@@ -176,7 +160,6 @@ function setLanguage(lang, reRender = true) {
     });
     els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
 
-    // CV linkini güncelle
     const cvBtn = document.getElementById('cv-download');
     if (cvBtn) {
         if (lang === 'tr') {
