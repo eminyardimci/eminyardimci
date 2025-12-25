@@ -124,12 +124,60 @@ const sections = {
     }
 };
 
-// ... (els, blurOverlay vs. aynı kalır)
 
-// load ve toggleDarkMode güncellenmiş hali:
-window.addEventListener('load', () => {
+let els = {};
+let currentLang = localStorage.getItem('lang') || 'tr';
+let currentSectionKey = null;
+let isTransitioning = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+    els = {
+        navLinks: document.querySelectorAll('.nav-link'),
+        projectDetail: document.getElementById('project-detail'),
+        projectYear: document.getElementById('project-year'),
+        projectContent: document.getElementById('project-content'),
+        hakkimda: document.getElementById('hakkimda'),
+        languageToggle: document.getElementById('language-toggle'),
+        darkModeToggle: document.getElementById('dark-mode-toggle'),
+        sidebar: document.querySelector('.sidebar'),
+        projectCloseBtn: document.getElementById('project-close-btn'),
+        projectsBtn: document.querySelector('.projects-btn'),
+        imagesButton: document.getElementById('images-button'),
+        galleryModal: document.getElementById('gallery-modal'),
+        galleryCarousel: document.getElementById('gallery-carousel'),
+        galleryCloseBtn: document.getElementById('gallery-close-btn'),
+        body: document.body
+    };
+
+    const blurOverlay = document.createElement('div');
+    blurOverlay.classList.add('blur-overlay');
+    document.body.appendChild(blurOverlay);
+
+    els.sidebar.addEventListener('click', handleSidebarClick);
+    els.languageToggle.addEventListener('click', () => setLanguage(currentLang === 'tr' ? 'en' : 'tr'));
+    els.projectCloseBtn.addEventListener('click', closeSection);
+    els.galleryCloseBtn.addEventListener('click', closeGallery);
+    els.projectsBtn.addEventListener('click', toggleSidebar);
+    els.darkModeToggle.addEventListener('click', toggleDarkMode);
+
     setLanguage(currentLang, false);
-    
+    setDarkModeIcon();
+    document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
+});
+
+function handleSidebarClick(e) {
+    const link = e.target.closest('.nav-link');
+    if (!link) return;
+    e.preventDefault();
+    const key = link.dataset.section;
+    if (currentSectionKey === key && key !== 'hakkimda') return;
+    showSection(key);
+    els.navLinks.forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
+    if (window.innerWidth <= 900) toggleSidebar();
+}
+
+function setDarkModeIcon() {
     if (localStorage.getItem('darkMode') === 'enabled') {
         els.body.classList.add('dark-mode');
         els.darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
@@ -137,9 +185,7 @@ window.addEventListener('load', () => {
         els.body.classList.remove('dark-mode');
         els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
-    
-    document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
-});
+}
 
 function toggleDarkMode() {
     els.body.classList.toggle('dark-mode');
@@ -151,65 +197,9 @@ function toggleDarkMode() {
         els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
 }
-const els = {
-    navLinks: document.querySelectorAll('.nav-link'),
-    projectDetail: document.getElementById('project-detail'),
-    projectYear: document.getElementById('project-year'),
-    projectContent: document.getElementById('project-content'),
-    hakkimda: document.getElementById('hakkimda'),
-    languageToggle: document.getElementById('language-toggle'),
-    darkModeToggle: document.getElementById('dark-mode-toggle'),
-    sidebar: document.querySelector('.sidebar'),
-    projectCloseBtn: document.getElementById('project-close-btn'),
-    projectsBtn: document.querySelector('.projects-btn'),
-    imagesButton: document.getElementById('images-button'),
-    galleryModal: document.getElementById('gallery-modal'),
-    galleryCarousel: document.getElementById('gallery-carousel'),
-    galleryCloseBtn: document.getElementById('gallery-close-btn'),
-    body: document.body
-};
-// Blur overlay'ı JS ile ekle
-const blurOverlay = document.createElement('div');
-blurOverlay.classList.add('blur-overlay');
-document.body.appendChild(blurOverlay);
-let currentLang = localStorage.getItem('lang') || 'tr';
-let currentSectionKey = null;
-let isTransitioning = false;
-els.sidebar.addEventListener('click', (e) => {
-    const link = e.target.closest('.nav-link');
-    if (!link) return;
-    e.preventDefault();
-    const key = link.dataset.section;
-    if (currentSectionKey === key && key !== 'hakkimda') return;
-    showSection(key);
-    els.navLinks.forEach(a => a.classList.remove('active'));
-    link.classList.add('active');
-    if (window.innerWidth <= 900) toggleSidebar();
-});
-els.languageToggle.addEventListener('click', () => {
-    const newLang = currentLang === 'tr' ? 'en' : 'tr';
-    setLanguage(newLang);
-});
-els.projectCloseBtn.addEventListener('click', closeSection);
-els.galleryCloseBtn.addEventListener('click', closeGallery);
-els.projectsBtn.addEventListener('click', toggleSidebar);
-els.darkModeToggle.addEventListener('click', toggleDarkMode);
-window.addEventListener('load', () => {
-    setLanguage(currentLang, false);
-    
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        els.body.classList.add('dark-mode');
-        els.darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-        els.body.classList.remove('dark-mode');
-        els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-    
-    document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
-});
+
 function setLanguage(lang, reRender = true) {
     if (lang === currentLang) return;
-    console.log('Dil değiştiriliyor: ' + lang); // Test log
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-lang-key]').forEach(el => {
@@ -217,12 +207,11 @@ function setLanguage(lang, reRender = true) {
         if (languages[lang][key]) el.innerHTML = languages[lang][key];
     });
     els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
-    // Her zaman açık modal'ı yeniden render et (sorunu çözer)
     if (currentSectionKey && currentSectionKey !== 'hakkimda') {
-        console.log('Açık proje yeniden render ediliyor: ' + currentSectionKey); // Test log
         showSection(currentSectionKey);
     }
 }
+
 function showSection(key) {
     if (isTransitioning) return;
     isTransitioning = true;
@@ -235,25 +224,26 @@ function showSection(key) {
         els.projectYear.textContent = section.year;
         els.projectContent.innerHTML = `<h2>${section.title}</h2><p>${section.description}</p>`;
         els.projectDetail.classList.remove('hidden');
-        blurOverlay.classList.add('active');
+        document.querySelector('.blur-overlay').classList.add('active');
         requestAnimationFrame(() => {
             els.projectDetail.classList.add('visible');
             scrollTo(els.projectDetail);
         });
-        // Resim buton eventi
         els.imagesButton.onclick = () => openGallery(section.images);
     }
     setTimeout(() => isTransitioning = false, 600);
 }
+
 function closeProject() {
     els.projectDetail.classList.remove('visible');
-    blurOverlay.classList.remove('active');
+    document.querySelector('.blur-overlay').classList.remove('active');
     setTimeout(() => {
         els.projectDetail.classList.add('hidden');
         els.projectYear.textContent = '';
         els.projectContent.innerHTML = '';
     }, 600);
 }
+
 function closeSection() {
     if (isTransitioning) return;
     closeProject();
@@ -262,31 +252,25 @@ function closeSection() {
     scrollTo(els.hakkimda);
     currentSectionKey = null;
 }
+
 function openGallery(images) {
     els.galleryCarousel.innerHTML = '';
     images.forEach(src => {
         const container = document.createElement('div');
         container.style.textAlign = 'center';
-        container.style.margin: '10px';
-
+        container.style.margin = '10px';
         const img = document.createElement('img');
         img.src = src;
-        img.alt = 'Proje görseli';
         img.style.cursor = 'zoom-in';
         img.style.transition = 'transform 0.4s ease';
-
-        img.onclick = () => {
-            img.classList.toggle('zoomed');
-        };
-
+        img.onclick = () => img.classList.toggle('zoomed');
         container.appendChild(img);
         els.galleryCarousel.appendChild(container);
     });
     els.galleryModal.classList.remove('hidden');
-    requestAnimationFrame(() => {
-        els.galleryModal.classList.add('visible');
-    });
+    requestAnimationFrame(() => els.galleryModal.classList.add('visible'));
 }
+
 function closeGallery() {
     els.galleryModal.classList.remove('visible');
     setTimeout(() => {
@@ -294,19 +278,11 @@ function closeGallery() {
         els.galleryCarousel.innerHTML = '';
     }, 600);
 }
+
 function scrollTo(el) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
 function toggleSidebar() {
     els.sidebar.classList.toggle('active');
-}
-function toggleDarkMode() {
-    els.body.classList.toggle('dark-mode');
-    if (els.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        els.darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-        localStorage.removeItem('darkMode');
-        els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
 }
