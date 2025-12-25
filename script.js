@@ -52,20 +52,20 @@ const sections = {
             year: '2017-2018', 
             title: 'Uluslar Arası MEB Robot Yarışması', 
             description: '2017–2018 yıllarında Sivas’ta düzenlenen 18. MEB Uluslararası Robot Yarışması “Hızlı Çizgi İzleyen” kategorisine katıldım.<br>Robotun siyah zemin üzerindeki beyaz çizgiyi otonom olarak en kısa sürede ve minimum hatayla takip etmesi hedeflendi.<br>Bu projede elektronik komponent seçimi, çizgi sensörlerinin belirlenmesi ve yerleşimi, motor sürücü devresi ile gömülü yazılımın geliştirilmesi görevlerini üstlendim.', 
-            images: ['assets/projects/meb.jpg'] 
+            images: ['assets/projects/meb.png'] 
         },
         tubitak: { 
             year: '2021', 
             title: 'TÜBİTAK 2242', 
             description: 'TÜBİTAK 2242 Yarışması İmalat ve Otomotiv kategorisinde takım olarak beşincilik elde ettik.<br>Projede Bluetooth haberleşme altyapısına sahip Arduino tabanlı kontrol sistemi geliştirilmiş, mekanizma tasarımı yapılmış ve gerekli sensör entegrasyonları gerçekleştirilmiştir.<br>Tasarlanan parçalar 3D baskı yöntemiyle üretilmiş ve sistem, tavana monte edilen raylı yapı üzerinde hareket edebilecek şekilde tasarlanmıştır.<br>Projenin temel amacı; dar alanlarda yer kaybını en aza indirerek, raylı sistem üzerinde yük kaldırma ve çeşitli yardımcı işleri gerçekleştirebilen modüler bir robot kol prototipi geliştirmektir.', 
-            images: ['assets/projects/2242-1.jpg', 'assets/projects/2242-2.jpg'] 
+            images: ['assets/projects/2242-1.png', 'assets/projects/2242-2.png'] 
         },
         robotaksi: { 
             year: '2023-2025', 
             title: 'Robotaksi Binek Otonom Araç Yarışması', 
             description: 'Robotaksi Binek Otonom Araç Yarışması’nın amacı; otonom sürüş kabiliyetlerine sahip, güvenli, verimli ve gerçek şehir senaryolarını simüle edebilen binek araçların tasarlanması ve geliştirilmesidir. Yarışma kapsamında ekipler; algılama, karar verme, kontrol ve araç entegrasyonu gibi disiplinlerde yetkinliklerini ortaya koymaktadır.<br><br>2023 yılında Robotaksi Binek Otonom Araç Yarışması’nda ekibimizle 3.’lük elde ederek En İyi Takım Ruhu ödülünü kazandık. Bu projede aracın elektronik kart tasarımı, elektrik sistemi ve gömülü sistem geliştirmelerinden sorumluydum; sensör ve aktüatör entegrasyonlarını gerçekleştirerek aracın güvenli ve verimli çalışmasını sağladım.<br><br>2024 yılında takım kaptanı olarak, önceki aracımızı hem elektriksel hem de mekanik açıdan baştan tasarlayıp geliştirdik ve buna ek olarak ikinci bir araç ürettik. Projede gömülü sistem yazılımı, elektronik kart tasarımı ve takım organizasyonu görevlerini üstlendim; mekanik çalışmalara da aktif katkı sağladım. Ayrıca Baykar, T.C. Gençlik ve Spor Bakanlığı, Uzay Spor, Ensar Kalıp, Mesan Elektrik ve Düzce Belediyesi ile sponsorluk görüşmeleri yaparak destek sağladım.<br><br>2025 yılında, önceki yıllarda edinilen deneyimler doğrultusunda geliştirilen yeni araç projesinde elektrik ekibinde aktif görev aldım ve mekanik çalışmalara destek sağladım. Bu süreçte Cybertruck tasarım yaklaşımından esinlenilen yeni bir araç tasarlandı; projede gömülü sistem yazılımı ve elektronik kart tasarımı görevlerini yürüttüm.', 
             images: [
-                'assets/projects/robo1.jpg',
+                'assets/projects/robo1.png',
                 'assets/projects/robo2.jpg',
                 'assets/projects/robo3.jpg',
                 'assets/projects/robo4.jpg',
@@ -77,13 +77,13 @@ const sections = {
             year: '2023-2024', 
             title: 'KOSGEB Destekli Robot Kol Projesi', 
             description: 'Sonel Yazılım firmasında bir yıl boyunca, KOSGEB destekli bir proje kapsamında ERP entegreli robot kol geliştirilmesinde görev aldım. Proje kapsamında, üretilen parçalar görüntü işleme yöntemleriyle kalite kontrol analizine tabi tutulmuş, uygun bulunan ürünler otomatik olarak algılanarak ERP sistemine stok ve üretim bilgileriyle kaydedilmiş, hatalı ürünler ise yeniden üretim sürecine yönlendirilmiştir.<br>Bu projede robot kol prototipinin üretimi, motor kontrol sistemleri ve gömülü sistem donanım–yazılım geliştirme görevlerinden sorumluydum. Geliştirilen sistem, üretim sürecinde insan müdahalesini azaltarak otomatik kalite kontrol ve stok yönetimi sağlamayı hedeflemiştir.', 
-            images: ['assets/projects/kosgeb1.jpg', 'assets/projects/kosgeb2.jpg'] 
+            images: ['assets/projects/kosgeb1.jpg', 'assets/projects/kosgeb2.png'] 
         },
         plcatolyesi: { 
             year: '2024', 
             title: 'PLC-Lojik Atölyesi Çalışmaları', 
             description: 'Düzce Üniversitesi Mekatronik Mühendisliği bölümüne kazandırılan PLC Atölyesi kapsamında; PLC deney setleri, FESTO endüstriyel deney standları ve sıvı seviye kontrol mekanizması üzerinde PLC programlama çalışmalarında aktif olarak görev aldım.<br>Bu çalışmaların yanı sıra, PLC’den bağımsız olarak kullanılan lojik kapı deney setlerinin bakım, onarım ve yenileme süreçlerinde yer aldım. Mevcut deney setlerinde bulunan bozulmuş LED’ler, lojik kapı entegreleri ve dirençler tespit edilerek değiştirilmiş, bağlantılar ve lehimler elden geçirilmiş ve setlerin elektriksel sağlamlık ve fonksiyon kontrolleri gerçekleştirilmiştir. Yapılan çalışmalar sonucunda deney setleri, dijital mantık konularının uygulamalı olarak sorunsuz şekilde işlenebileceği hale getirilmiştir.<br>Gerçekleştirilen bu çalışmalar, öğrencilerin temel elektronik ve dijital mantık prensiplerini güvenli ve doğru şekilde öğrenmelerini sağlamayı amaçlamıştır.', 
-            images: ['assets/projects/plc-lojik1.jpg', 'assets/projects/plc-lojik2.jpg'] 
+            images: ['assets/projects/plc-lojik1.jpg', 'assets/projects/plc-lojik3.jpg', 'assets/projects/plc-lojik2.jpg'] 
         },
         egitmenlik: { 
             year: '2023-2025', 
@@ -95,19 +95,19 @@ const sections = {
             year: '2025', 
             title: 'Kargo Otomasyonu Projesi', 
             description: 'SCADA dersi kapsamında verilen uygulama ödevi için kargo otomasyonu konusunu seçtim. Geliştirilen otomasyon sisteminin amacı; gelen kargoların boyutlarının ölçülerek sınıflandırılması, uygun bölmelere yönlendirilmesi ve aynı zamanda kargo sayısının kaydedilerek depo kontrolünün sağlanmasıdır.<br>Bu kapsamda sistem kontrolü için Siemens S7-1200 CPU 1214C DC/DC/DC modeli PLC kullanıldı. Kargo boyutlandırma sürecinde sensörlerden alınan analog verilerin işlenebilmesi amacıyla SM 1231 AI 4x13 Bit analog giriş modülü tercih edildi. PLC programı TIA Portal ortamında geliştirilmiş, sistemin görselleştirilmesi ve test edilmesi amacıyla otomasyon süreci Factory I/O kullanılarak simüle edilmiştir. PLC–SCADA entegrasyonu ile sistemin izlenmesi, kontrol edilmesi ve raporlanması sağlanmıştır.', 
-            images: ['assets/projects/factro.jpg', 'assets/projects/factoryio.jpg'] 
+            images: ['assets/projects/factro.png', 'assets/projects/facto.png', 'assets/projects/factoryio.png'] 
         },
         clawgraber: { 
             year: '2025', 
             title: 'Claw Grabber', 
             description: 'Mevcut görsel ve referans tasarımlar incelenerek tersine mühendislik metotları uygulanmış, bu doğrultuda mekanik yapıya sahip bir Claw Grabber mekanizması tasarlanmıştır.', 
-            images: ['assets/projects/claw.jpg'] 
+            images: ['assets/projects/claw.png'] 
         },
         bitirme: { 
             year: '2025', 
             title: 'Bitirme Projesi (DÜ-HAS)', 
             description: 'TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Destekleme Programı kapsamında destek almaya hak kazanan ve yürütücülüğünü üstlendiğim, aynı zamanda bitirme projem olan “Üniversite Ortamlarında Hava Savunma Sistemleri Geliştirilebilir mi?” başlıklı araştırma projesi, TÜBİTAK tarafından maddi ve akademik olarak desteklenmiştir.<br>Proje kapsamında Raspberry Pi tabanlı görüntü işleme sistemleri kullanılarak gerçek zamanlı hedef tespiti ve anlık müdahale algoritmaları geliştirilmiştir. Ayrıca sensör entegrasyonu, veri işleme ve otomatik kontrol yaklaşımları ele alınmış; tüm yazılım ve mekanik bileşenlerin tek bir donanım platformu üzerinde entegre şekilde çalışması sağlanmıştır.<br>Bu çalışma, savunma sistemleri simülasyonları ile üniversite ortamında uygulanabilir prototip geliştirme açısından önemli bir mühendislik ve araştırma deneyimi kazandırmıştır.', 
-            images: ['assets/projects/bitirme.jpg', 'assets/projects/bitirme2.jpg']
+            images: ['assets/projects/bitirme.png', 'assets/projects/bitirme2.png']
         }
     },
     en: {
