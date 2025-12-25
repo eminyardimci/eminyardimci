@@ -1,0 +1,425 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Georgia", serif;
+    background: #f9fafb;
+    color: #1e293b;
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+/* Dark Mode */
+body.dark-mode {
+    background: #1e293b;
+    color: #f9fafb;
+}
+body.dark-mode .sidebar {
+    background: #b91c1c;
+}
+body.dark-mode .project-section {
+    background: #2d3e50;
+}
+body.dark-mode .gallery-section {
+    background: #2d3e50;
+}
+body.dark-mode .contact-links a {
+    color: #f9fafb;
+}
+body.dark-mode .contact-links a:hover {
+    color: #dc2626;
+}
+body.dark-mode .col h3 {
+    color: #dc2626;
+}
+/* Blur Overlay – Yumuşak ve mobil dostu */
+.blur-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    z-index: 90;
+    pointer-events: none;
+}
+.blur-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #dc2626;
+    color: white;
+    padding: 150px 30px 40px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+.sidebar ul {
+    list-style: none;
+}
+.sidebar li {
+    margin-bottom: 20px;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+}
+.sidebar a:hover,
+.sidebar a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* Content */
+.content {
+    margin-left: 250px;
+    padding: 60px 40px;
+    width: calc(100% - 250px);
+}
+/* Hero */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+.hero-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.hero-header h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.photo {
+    width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+.col h3 {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    color: #dc2626;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.col p, .col li {
+    font-size: 16px;
+    line-height: 1.8;
+}
+ul {
+    padding-left: 20px;
+    margin: 10px 0 30px;
+}
+/* Contact Links */
+.contact-links {
+    list-style: none;
+}
+.contact-links li {
+    margin-bottom: 12px;
+}
+.contact-links a {
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+.contact-links a:hover {
+    color: #dc2626;
+}
+.contact-links i {
+    font-size: 20px;
+    width: 24px;
+    color: #dc2626;
+}
+/* Project Section – Yıl tamamen içeride, taşma yok, orantılı fontlar */
+.project-section {
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.project-section.visible {
+    opacity: 1;
+    visibility: visible;
+}
+/* Yıl – İçeride, taşmasız, orantılı ve dengeli font */
+.project-year {
+    position: static;
+    font-size: clamp(40px, 5vw, 65px);
+    font-weight: bold;
+    color: #dc2626;
+    margin-bottom: 20px;
+    line-height: 1;
+    text-align: left;
+    background: transparent;
+    padding: 0;
+}
+.project-section h2 {
+    font-size: clamp(36px, 5vw, 46px);
+    margin-bottom: 30px;
+    color: #1e293b;
+}
+.project-section p {
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.8;
+    max-width: 900px;
+}
+/* Yeni Images Button – Yaratıcı ve görünür versiyon */
+.images-button {
+    display: block;
+    margin: 20px auto 10px;
+    padding: 10px 20px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.images-button:hover {
+    background: #b91c1c;
+    transform: scale(1.05);
+}
+body.dark-mode .images-button {
+    background: #ffcc00;
+    color: #1e293b;
+}
+body.dark-mode .images-button:hover {
+    background: #ffd633;
+}
+/* Gallery Section */
+.gallery-section {
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    z-index: 110;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.gallery-section.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#gallery-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+#gallery-carousel img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.close-btn {
+    padding: 12px 30px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 40px auto 0;
+    display: block;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+.close-btn:hover {
+    background: #b91c1c;
+}
+.hidden {
+    display: none;
+}
+/* Buttons – Dil ve Dark Mode butonları aynı stil */
+.projects-btn, .language-toggle, .dark-mode-toggle {
+    padding: 0;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.language-toggle,
+.dark-mode-toggle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.language-toggle:hover,
+.dark-mode-toggle:hover,
+.projects-btn:hover {
+    background: #b91c1c;
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.projects-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: none;
+    z-index: 20;
+}
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 100px;
+    z-index: 100;
+}
+.dark-mode-toggle i {
+    pointer-events: none;
+    color: white;
+}
+/* Karanlık modda buton renkleri */
+body.dark-mode .language-toggle,
+body.dark-mode .dark-mode-toggle,
+body.dark-mode .projects-btn {
+    background: #ffcc00;
+}
+body.dark-mode .language-toggle {
+    color: #1e293b;
+}
+body.dark-mode .dark-mode-toggle i {
+    color: #1e293b;
+}
+
+/* Responsive – Mobilde de taşmasız ve orantılı */
+@media (max-width: 900px) {
+    .blur-overlay {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    .sidebar {
+        transform: translateX(-100%);
+        padding-top: 100px;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 40px 20px;
+    }
+    .hero-header h1 {
+        font-size: 48px;
+    }
+    .photo {
+        width: 250px;
+    }
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .projects-btn {
+        display: block;
+    }
+    .project-section {
+        width: 95%;
+        padding: 50px 20px;
+        max-height: 90vh;
+    }
+    .gallery-section {
+        width: 95%;
+        padding: 50px 20px;
+        max-height: 90vh;
+    }
+    .project-year {
+        font-size: clamp(40px, 8vw, 60px);
+        margin-bottom: 15px;
+    }
+    .project-section h2 {
+        font-size: clamp(30px, 7vw, 38px);
+    }
+    .project-section p {
+        font-size: clamp(15px, 4vw, 17px);
+    }
+    .language-toggle,
+    .dark-mode-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        top: 10px;
+    }
+    .language-toggle {
+        right: 10px;
+    }
+    .dark-mode-toggle {
+        right: 70px; /* Dil butonundan biraz solda, çakışmasın */
+    }
+    .images-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
