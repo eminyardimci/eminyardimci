@@ -117,7 +117,9 @@ window.addEventListener('load', () => {
     setLanguage(currentLang, false);
     if (localStorage.getItem('darkMode') === 'enabled') {
         els.body.classList.add('dark-mode');
-        els.darkModeToggle.textContent = 'Light Mode';
+        els.darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        els.darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
     document.querySelector('.nav-link[data-section="hakkimda"]').classList.add('active');
 });
