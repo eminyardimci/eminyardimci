@@ -156,7 +156,6 @@ function setLanguage(lang, reRender = true) {
     });
     els.languageToggle.textContent = lang === 'tr' ? 'EN' : 'TR';
 
-    // CV indirme linkini güncelle
     const cvBtn = document.getElementById('cv-download');
     if (cvBtn) {
         cvBtn.href = lang === 'tr' ? 'assets/projects/Mehmet Emin Yardımcı_CV.pdf' : 'assets/projects/Mehmet Emin Yardımcı_CV_EN.pdf';
@@ -212,6 +211,9 @@ function closeSection() {
 
 function openGallery(images) {
     els.galleryCarousel.innerHTML = '';
+    if (images.length === 0) {
+        els.galleryCarousel.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">Bu proje için resim bulunmamaktadır.</p>';
+    }
     images.forEach(src => {
         const container = document.createElement('div');
         container.style.textAlign = 'center';
@@ -225,10 +227,18 @@ function openGallery(images) {
 
         img.onclick = (e) => {
             e.stopPropagation();
-            // Tüm zoom'ları kaldır
-            document.querySelectorAll('#gallery-carousel img').forEach(i => i.classList.remove('zoomed'));
-            // Tıklananı büyüt
-            img.classList.add('zoomed');
+            if (img.classList.contains('zoomed')) {
+                img.classList.remove('zoomed');
+                img.style.cursor = 'zoom-in';
+            } else {
+                // Tüm zoom'ları kaldır
+                document.querySelectorAll('#gallery-carousel img').forEach(i => {
+                    i.classList.remove('zoomed');
+                    i.style.cursor = 'zoom-in';
+                });
+                img.classList.add('zoomed');
+                img.style.cursor = 'zoom-out';
+            }
         };
 
         container.appendChild(img);
@@ -237,17 +247,13 @@ function openGallery(images) {
 
     els.galleryModal.classList.remove('hidden');
     requestAnimationFrame(() => els.galleryModal.classList.add('visible'));
-
-    // Modal dışına tıklayınca zoom kapat
-    els.galleryModal.onclick = (e) => {
-        if (e.target === els.galleryModal) {
-            document.querySelectorAll('#gallery-carousel img').forEach(i => i.classList.remove('zoomed'));
-        }
-    };
 }
 
 function closeGallery() {
-    document.querySelectorAll('#gallery-carousel img').forEach(i => i.classList.remove('zoomed'));
+    document.querySelectorAll('#gallery-carousel img').forEach(i => {
+        i.classList.remove('zoomed');
+        i.style.cursor = 'zoom-in';
+    });
     els.galleryModal.classList.remove('visible');
     setTimeout(() => {
         els.galleryModal.classList.add('hidden');
