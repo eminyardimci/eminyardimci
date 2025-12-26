@@ -32,7 +32,7 @@ const languages = {
         newTech: 'Learning and applying new technologies', timeMgmt: 'Time management and planning',
         workHistoryTitle: 'Work History', mavili: 'Mavili Electronics (Intern)', petkom: 'Petkom Software (Intern)',
         pektam: 'Pektam Panel (Intern)', sunny: 'Sunny Electronics (Intern)', orbiba: 'Orbiba Robotics (Intern)',
-        sonel: 'Sonel Software – R&D', t3: 'T3 Foundation – Instructor', skillsTitle: 'Skills',
+        sonel: 'Sonel Software – R&D Engineering', t3: 'T3 Foundation – Instructor', skillsTitle: 'Skills',
         electronicDesign: 'Electronic Board Design', embedded: 'Embedded System Software',
         plc: 'PLC / HMI / SCADA', '3dModeling': '3D Solid Modeling', certificatesTitle: 'Certificates',
         stm32: 'STM32', freertos: 'FreeRTOS', altium: 'Altium PCB', cProg: 'C Programming',
